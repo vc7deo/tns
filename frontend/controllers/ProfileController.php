@@ -60,12 +60,16 @@ class ProfileController extends Controller
             return $this->redirect('index');
         }
         $this->layout = 'profile';
-        $model = new Profile();
-        $model->scenario = 'page-one';
         $uid = Yii::$app->user->identity->id;
-
+        if (($model = Profile::findOne(['user_id' => $uid])) === null) {
+            $model = new Profile();
+        }
+        
+        $model->scenario = 'page-one';
         if ($model->load(Yii::$app->request->post())) {
             $model->user_id = $uid;
+            $model->page_no = 1;
+            $model->dob = strtotime($model->dob);
             $model->languages_known = implode(',',$model->languages_known);
             $model->save(false);
             return $this->redirect('index');

@@ -24,6 +24,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'responsiveWrap' => false,
+        'rowOptions' => function($model) {
+            if ($model->is_premium === 1) {
+                return ['style' => 'background-color: #d7fae0'];
+            }else{
+                return ['style' => 'background-color: #fad7da'];
+            }
+        },
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'fullname',
@@ -45,7 +52,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filterInputOptions' => ['class' => 'form-control', 'prompt' => 'All'],
 
             ],
+            [
+                'attribute' => 'is_premium',
+                'label' => 'Premium',
+                'value' => function($data) {
+                    if($data->is_premium == 1){
+                        return Html::a('Disable',['/user/disable-premium', 'id' => $data->id],['class' => 'btn btn-danger','data-method' => 'post','data-confirm' => "Are you sure?", 'title' => 'Disable']);
+                    }else{
+                        return Html::a('Enable',['/user/enable-premium', 'id' => $data->id],['class' => 'btn btn-success','data-method' => 'post','data-confirm' => "Are you sure?", 'title' => 'Enable']);
+                    }
+                },
+                'format' => 'raw',
 
+            ],
             ['class' => 'yii\grid\ActionColumn',
             'template' => '{view}',
             ],

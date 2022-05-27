@@ -27,10 +27,12 @@ class Settings implements BootstrapInterface {
         if (!Yii::$app->user->isGuest) {
             $user = Yii::$app->user->identity;
             if($user->profile){
-                if(!empty($user->profile->page_no) && $user->profile->page_no == 1){
+                if(isset($user->profile->page_no) && $user->profile->page_no == 1){
                     Yii::$app->params['user.profile'] = 'PROFILE_PAGE_TWO';
-                }elseif(!empty($user->profile->page_no) && $user->profile->page_no == 2 && $user->profile->status == 0){
+                }elseif(isset($user->profile->page_no) && $user->profile->page_no == 2 && $user->profile->status == 0){
                     Yii::$app->params['user.profile'] = 'PROFILE_NOT_APPROVED';
+                }elseif(isset($user->profile->page_no) && $user->profile->page_no == 0 && $user->profile->status == 0){
+                    Yii::$app->params['user.profile'] = 'PROFILE_PAGE_ONE';
                 }else{
                     Yii::$app->params['user.profile'] = 'PROFILE_APPROVED';
                 }  

@@ -182,6 +182,7 @@ class SiteController extends Controller
     public function actionRequestPasswordReset()
     {
         $model = new PasswordResetRequestForm();
+        $this->layout = 'main-login';
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
                 Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
@@ -211,7 +212,7 @@ class SiteController extends Controller
         } catch (InvalidArgumentException $e) {
             throw new BadRequestHttpException($e->getMessage());
         }
-
+        $this->layout = 'main-login';
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
             Yii::$app->session->setFlash('success', 'New password saved.');
 
@@ -237,6 +238,7 @@ class SiteController extends Controller
         } catch (InvalidArgumentException $e) {
             throw new BadRequestHttpException($e->getMessage());
         }
+        $this->layout = 'main-login';
         if (($user = $model->verifyEmail())) { 
             //&& Yii::$app->user->login($user)
             Yii::$app->session->setFlash('success', 'Your email has been confirmed!');
@@ -255,6 +257,7 @@ class SiteController extends Controller
     public function actionResendVerificationEmail()
     {
         $model = new ResendVerificationEmailForm();
+        $this->layout = 'main-login';
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
                 Yii::$app->session->setFlash('success', 'Check your email for further instructions.');

@@ -6,26 +6,78 @@
 
 use yii\bootstrap4\Html;
 use yii\bootstrap4\ActiveForm;
+$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist');
 
 $this->title = 'Reset password';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-reset-password">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please choose your new password:</p>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'reset-password-form']); ?>
-
-                <?= $form->field($model, 'password')->passwordInput(['autofocus' => true]) ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Save', ['class' => 'btn btn-primary']) ?>
+<div class="flex-home">
+        <div class="home-banner" style="background: url(<?=$directoryAsset?>/images/banner.svg)">
+                
+            <div class="container">
+            <div class="loginAddress">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="address">
+                                Convent Road II, Thottakkattukara, Aluva,
+                                Pin: 683108
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="phone">
+                                <span>9087568900,</span>
+                                <span>9087568900</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+        <div class="home-right">
+        <div class="LoginContentBox">
+            <div class="logo-main"><img src="<?=$directoryAsset?>/images/logo-main.png" alt="logo" /></div>
+            <div class="loginCenter">
+<?php if(Yii::$app->session->hasFlash('success')) : ?>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+<?=Yii::$app->session->getFlash('success');?>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<?php endif; ?>
+<?php if(Yii::$app->session->hasFlash('error')) : ?>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+<?=Yii::$app->session->getFlash('error');?>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<?php endif; ?>
+<h5>Reset password</h5>
+                <h6>Please choose your new password</h6>
+                            <?php $form = ActiveForm::begin(['id' => 'reset-password-form']); ?>
 
-            <?php ActiveForm::end(); ?>
+                <div class="enterCategory">
+                <?= $form->field($model, 'password')->passwordInput() ?>
+
+                </div>
+                <div class="loginButton">
+                    <?= Html::submitButton('SAVE', ['class' => '']) ?>
+                </div>
+                <div class="backLoginBtn">
+<?=Html::a('<i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to login',['site/login'])?>
+                </div>
+                 <?php ActiveForm::end(); ?>
+            </div>
+        </div>
+
         </div>
     </div>
-</div>
+                        <div class="footer">
+        This website is strictly for matrimonial purpose only and not a dating website.
+<span>Copyright © 2022. All rights reserved.</span>
+    </div></div>
+
+           

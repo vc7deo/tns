@@ -17,7 +17,6 @@ class SignupForm extends Model
     public $first_name;
     public $last_name;
     public $phone;
-    public $dob;
     public $gender;
 
     /**
@@ -48,12 +47,7 @@ class SignupForm extends Model
             ['phone', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This phone has already been taken.'],
         ];
     }
-    public function attributeLabels()
-    {
-        return [
-            'dob' => 'Date of Birth',
-        ];
-    }
+ 
     /**
      * Signs user up.
      *
@@ -71,7 +65,6 @@ class SignupForm extends Model
         $user->last_name = $this->last_name;
         $user->email = $this->email;
         $user->phone = $this->phone;
-        $user->dob = strtotime($this->dob);
         $user->gender = $this->gender;
         $user->setPassword($this->password);
         $user->generateAuthKey();
@@ -96,7 +89,7 @@ class SignupForm extends Model
                 ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
                 ['user' => $user]
             )
-            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
+            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name])
             ->setTo($this->email)
             ->setSubject('Account registration at ' . Yii::$app->name)
             ->send();

@@ -79,7 +79,7 @@ class Profile extends \yii\db\ActiveRecord
             [['height_unit','weight_unit','marital_status', 'body_type', 'physical_status', 'eating_habits', 'drinking_habits', 'smoking_habits', 'family_type', 'family_status'], 'string', 'max' => 100],
             [['height', 'weight'], 'number'],
             [['education', 'education_details', 'employed_in', 'occupation', 'occupation_details', 'income', 'religion', 'caste', 'sub_caste', 'other', 'star', 'rasi', 'gothram', 'fathers_occupation', 'mothers_occupation', 'origin', 'state', 'city', 'citizenship', 'hobbies', 'interests', 'photo1', 'photo2', 'photo3'], 'string', 'max' => 255],
-            ['languages_known', 'safe'],
+            [['languages_known','dob'], 'safe'],
         ];
     }
 
@@ -90,6 +90,7 @@ class Profile extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'dob' => 'Date of Birth',
             'height' => 'Height',
             'height_unit' => 'Height Unit',
             'weight' => 'Weight',
@@ -119,9 +120,9 @@ class Profile extends \yii\db\ActiveRecord
             'family_status' => 'Family Status',
             'fathers_occupation' => 'Fathers Occupation',
             'mothers_occupation' => 'Mothers Occupation',
-            'origin' => 'Origin',
-            'brothers' => 'Brothers',
-            'sisters' => 'Sisters',
+            'origin' => 'Family origin',
+            'brothers' => 'No. of Brothers',
+            'sisters' => 'No. of Sisters',
             'city' => 'City',
             'state' => 'State',
             'country' => 'Country',
@@ -141,6 +142,14 @@ class Profile extends \yii\db\ActiveRecord
     public function getCntry()
     {
         return $this->hasOne(Country::className(), ['id' => 'country']);
+    }
+    public function getSubCaste()
+    {
+        if(!empty($this->other)){
+            return $this->other;
+        }else{
+            return $this->sub_caste;
+        }
     }
     /**
      * {@inheritdoc}

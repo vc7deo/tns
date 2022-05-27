@@ -484,7 +484,7 @@ Upgrade Your Profile
 <label>Date of birth</label>
 </div>
 <div class="col-xs-12 col-lg-7">
-<label><?= date("d-m-Y",$user->dob) ?></label>
+<label><?= date("d-m-Y",$user->profile->dob) ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
@@ -617,12 +617,12 @@ Upgrade Your Profile
 <div class="detailSeprate">
 <h3><img src="<?=$directoryAsset?>/images/pray.png"> Religious Information</h3>
 <?php if(isset($user->profile)): ?>
-<!-- <div class="row arrageFiled">
+<div class="row arrageFiled">
 <div class="col-xs-12 col-lg-5">
 <label>Religion</label>
 </div>
 <div class="col-xs-12 col-lg-7">
-<label>Hindu</label>
+<label><?= $user->profile->religion ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
@@ -630,15 +630,15 @@ Upgrade Your Profile
 <label>Caste</label>
 </div>
 <div class="col-xs-12 col-lg-7">
-<label>Nair</label>
+<label><?= $user->profile->caste ?></label>
 </div>
-</div> -->
+</div>
 <div class="row arrageFiled">
 <div class="col-xs-12 col-lg-5">
 <label>Subcaste</label>
 </div>
 <div class="col-xs-12 col-lg-7">
-<label><?= $user->profile->sub_caste ?></label>
+<label><?= $user->profile->subCaste ?></label>
 </div>
 </div>
 <div class="row arrageFiled">

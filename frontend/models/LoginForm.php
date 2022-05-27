@@ -52,6 +52,7 @@ class LoginForm extends Model
     {
         return [
             'username' => 'Matrimony Id / E-mail',
+            'rememberMe' => 'Keep me logged in',
         ];
     }
     /**

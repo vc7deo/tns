@@ -1,3 +1,4 @@
+
 body {
   font-family: "Poppins", sans-serif;
   background: #fbfbfb;
@@ -39,6 +40,9 @@ button {
 .flex-home {
   display: flex;
   background: #fff;
+}
+.flex-home-reg{
+   background: #fff; 
 }
 .overlay {
   position: fixed; /* Sit on top of the page content */
@@ -109,7 +113,7 @@ button {
 }
 
 .loginCenter h5 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-weight: 700;
   padding-top: 20px;
   font-size: 25px;
@@ -126,16 +130,17 @@ button {
   border: 1px solid #e9e7e7;
   padding: 15px;
   border-radius: 7px;
+  outline: none !important;
 }
 
 .enterCategory select {
   width: 100%;
   border: 1px solid #e9e7e7;
-  padding: 10px;
+  padding: 0 10px;
   border-radius: 7px;
 }
 .enterCategory {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .keepLogin {
@@ -147,7 +152,7 @@ button {
   vertical-align: middle;
 }
 
-.loginButton input {
+.loginButton button {
   width: 100%;
   font-weight: 500;
   background: #21346e;
@@ -302,7 +307,7 @@ button {
   font-weight: 900;
 }
 .logo-main {
-  margin: 20px auto 0 auto;
+  margin: 50px auto 0 auto;
 }
 
 li.nav-item.dropdown {
@@ -833,7 +838,18 @@ button.interestBtns {
 }
 
 .logo-main img {
-  max-width: 150px;
+  max-width: 145px;
+}
+
+.logo-main:after {
+    content: "MATRIMONY";
+    display:block;
+    margin: auto;
+    text-align: center;
+    line-height:1em;
+    font-size:20px;
+    font-weight:600;
+    color:#21346d;
 }
 
 .regPolicy {
@@ -851,13 +867,28 @@ button.interestBtns {
   margin-top: 20px;
 }
 .moreReg {
-  padding: 40px 0;
+  padding: 0px 0 40px 0;
   background: #fbfbfb;
 }
+
+header .dropdown-menu {padding: 0;}
+
+header a.dropdown-item:hover {
+    background:#21346e;
+    color:#fff;
+}
+
+header .dropdown-divider {
+    margin: 0;
+}
+
 .moreReg .flex-home {
   background: #fbfbfb;
 }
-.moreReg .saveButtonsReg input {
+.moreReg .flex-home-reg{
+    background: #fbfbfb;
+}
+.moreReg .saveButtonsReg button {
   background: #21346e;
   border: 0;
   color: #fff;
@@ -965,4 +996,60 @@ button.interestBtns {
   display: block;
   margin-right:0;
   margin-bottom: 5px;
+}
+
+.field-loginform-rememberme .custom-control.custom-checkbox {
+    text-align: right;
+}
+
+.enterCategory .form-group {
+    margin-bottom: 0 !important;
+}
+
+.error-not-found {color: #21346e; text-align: center;height: 100vh;margin-top: 50px;}
+
+.error-not-found h2 {margin-bottom: 30px;font-size: 80px;}
+
+.error-not-found h5 {font-size: 40px;}
+
+.error-not-found h6 {font-size: 25px;margin-top: 25px;}
+.backLoginBtn{
+	text-align: center;
+	margin-top: 15px;
+}
+.backLoginBtn a{
+	    text-decoration: none;
+    font-weight: 600;
+    color: #21346e;
+    font-size: 16px;
+}
+
+.loginCenter h6 {color: #aea9a9;font-weight: 400;font-size: 15px;margin-bottom: 15px;}
+
+@media (max-width: 1300px){
+
+.loginAddress .address:after{
+content: none;
+}
+.loginAddress .phone:before{
+content: none;
+}
+}
+
+@media (max-width: 1200px){
+.flex-home{
+display:block;
+}
+.home-banner{
+display:none;
+}
+.home-right {
+    width: auto !important;
+}
+}
+
+@media (maax-width: 991px){
+.moreReg .arrageFiled {
+    margin-bottom: 0;
+}
 }

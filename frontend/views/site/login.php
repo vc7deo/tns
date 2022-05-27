@@ -30,22 +30,12 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                         </div>
                     </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                        <div class="footer">
-        This website is strictly for matrimonial purpose only and not a dating website.
-<span>Copyright © 2022. All rights reserved.</span>
-    </div></div>
-    </div>
+
                 </div>
             </div>
         </div>
         <div class="home-right">
         <div class="LoginContentBox">
-<!--             <div class="regSection">
-                <span>For Free Registration</span>
-                <a href="register.html">Register Here</a>
-            </div> -->
             <div class="logo-main"><img src="<?=$directoryAsset?>/images/logo-main.png" alt="logo" /></div>
             <div class="loginCenter">
 
@@ -66,29 +56,40 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 <?php endif; ?>
                 <h5>LOGIN</h5>
-                <p>
-Doesn't have an account yet? <?=Html::a('Sign Up',['site/signup'])?>
-</p>
+                <div class="regSection">
+<span>For Free Registration</span> <?=Html::a('Register Here',['site/signup'])?>
+</div>
 <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+<div class="enterCategory">
+                    <?= $form->field($model, 'username')->textInput() ?>
+</div>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+<div class="enterCategory">
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-                <p>
-                    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
-                </p>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                 </div>
 
+                <div class="keepLogin"><?= $form->field($model, 'rememberMe')->checkbox() ?></div>
+
+  
+
+                <div class="loginButton">
+                    <?= Html::submitButton('Login', ['class' => '', 'name' => 'login-button']) ?>
+                </div>  
+
+                              <div class="forgotPassword">
+            <?= Html::a('Resend new verification email', ['site/resend-verification-email']) ?>
+            <?= Html::a('Forgot password?', ['site/request-password-reset']) ?>.
+                </div>
             <?php ActiveForm::end(); ?>
             </div>
         </div>
 
         </div>
     </div>
+                        <div class="footer">
+        This website is strictly for matrimonial purpose only and not a dating website.
+<span>Copyright © 2022. All rights reserved.</span>
+    </div></div>
+
            

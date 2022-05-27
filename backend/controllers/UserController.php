@@ -119,6 +119,20 @@ class UserController extends Controller
         }
         return $this->redirect(['index']);
     }
+    public function actionDisablePremium($id)
+    {
+        $user = $this->findModel($id);
+        $user->is_premium = 0;
+        $user->save(false);
+        return $this->redirect(['index']);
+    }
+    public function actionEnablePremium($id)
+    {
+        $user = $this->findModel($id);
+        $user->is_premium = 1;
+        $user->save(false);
+        return $this->redirect(['index']);
+    }
     /**
      * Finds the User model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

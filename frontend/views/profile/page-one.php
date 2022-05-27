@@ -2,30 +2,49 @@
 
 use yii\bootstrap4\Html;
 use yii\bootstrap4\ActiveForm;
+use kartik\date\DatePicker;
 
 $this->title = 'Profiles';
 $this->params['breadcrumbs'][] = $this->title;
+if(!$model->isNewRecord){
+  $model->languages_known = explode(',', $model->languages_known);
+  $model->dob = date('d-m-Y',$model->dob);
+}
 ?>
     <div class="container">
     	<?php $form = ActiveForm::begin(['id' => 'signup-form']); ?>
-      <div class="flex-home">
-        <div class="regPolicy">
+      <div class="flex-home-reg">
+          <div class="row">
+              <div class="col-lg-6 col-sm-12">
+                   <div class="regPolicy">
             <div class="detailSeprate">
           <h3>Basic Details</h3>
-
           <div class="row arrageFiled">
-            <div class="col-xs-12 col-lg-6">
+            <div class="col-xs-12 col-lg-12">
+<?= $form->field($model, 'dob')->widget(DatePicker::classname(), [
+    'readonly' => true,
+    'pluginOptions' => [
+        'autoclose'=>true,
+        'format' => 'dd-mm-yyyy',
+        'todayHighlight' => true,
+        'endDate' => "-21y"
+    ],
+]);?>
+      </div>
+          </div>
+          <div class="row arrageFiled">
+            <div class="col-xs-6 col-lg-6">
             <?= $form->field($model, 'height')->textInput() ?>
 			</div>
-			<div class="col-xs-12 col-lg-6">
+			<div class="col-xs-6 col-lg-6">
             <?= $form->field($model, 'height_unit')->dropDownList(['Feet' => 'Feet','Centimeter' => 'Centimeter'])->label("&nbsp") ?>
             </div>
           </div>
           <div class="row arrageFiled">
-            <div class="col-xs-12 col-lg-6">
+            <div class="col-xs-6 col-lg-6">
             <?= $form->field($model, 'weight')->textInput() ?>
 			</div>
-			<div class="col-xs-12 col-lg-6">
+			<div class="col-xs-6 col-lg-6">
             <?= $form->field($model, 'weight_unit')->dropDownList(['Kilogram' => 'Kilogram'])->label("&nbsp") ?>
             </div>
           </div>
@@ -67,9 +86,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
         </div>
         </div>
-
-
-        <div class="regPolicyRight">
+              </div>
+              <div class="col-lg-6 col-sm-12">
+                    <div class="regPolicyRight">
             <div class="detailSeprate">
           <h3>Professional Details</h3>
           <div class="row arrageFiled">
@@ -135,6 +154,8 @@ $this->params['breadcrumbs'][] = $this->title;
           </div>
         
         </div>
+              </div>
+          </div>
 
 
       </div>

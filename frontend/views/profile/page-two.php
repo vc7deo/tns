@@ -10,7 +10,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
     <div class="container">
     	<?php $form = ActiveForm::begin(['id' => 'signup-form']); ?>
-      <div class="flex-home">
+      <div class="flex-home-reg">
+           <div class="row">
+              <div class="col-lg-6 col-sm-12">
         <div class="regPolicy">
             <div class="detailSeprate">
                 <h3>Family Details</h3>
@@ -71,6 +73,8 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>            
 </div>
 </div>
+</div>
+ <div class="col-lg-6 col-sm-12">
 <div class="regPolicyRight">
 <div class="detailSeprate">
 <h3>Hobbies & Interests</h3>
@@ -91,8 +95,8 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
             </div>
         </div>
-
-
+</div>
+</div>
       </div>
 
       <div class="saveButtonsReg">
