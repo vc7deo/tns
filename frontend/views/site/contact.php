@@ -11,6 +11,49 @@ use yii\captcha\Captcha;
 $this->title = 'Contact';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
+
+        <div class="container">
+            <div class="page-wrapper">
+                <div class="contactAddress login-ft">
+                  
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="address">
+                                Convent Road II, Thottakkattukara, 
+                                <div>Aluva, Kerala</div>
+                                <div>Pin: 683108</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="phone">
+                                <div class="mb-2">
+                                    Secretary: 
+                                <span>9087568900</span>
+                            </div>
+                            <div class="mb-2">
+                                President: 
+                                <span>9087568900</span>
+                            </div>
+                            <div class="mb-2">
+                                Office: 
+                                <span>9087568900</span>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+
+
+                        </div>
+                        <div class="gMap">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.7343137080866!2d76.34379241479522!3d10.120820192768372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080f3c9c8ec507%3A0xcde2d95576e4d91b!2sConvent%20Rd%20II%2C%20Thottakkattukara%2C%20Aluva%2C%20Kerala%20683108!5e0!3m2!1sen!2sin!4v1650549933363!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+               
+            </div>
+        </div>
+
+<!--
 <div class="site-contact">
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -43,3 +86,4 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
 </div>
+-->

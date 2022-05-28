@@ -15,16 +15,16 @@ $cid = Yii::$app->controller->id;
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 <ul class="navbar-nav mr-auto topnavHead">
 <li class="nav-item">
-<a class="nav-link" href="#">Home </a>
+<a class="nav-link" href="<?=Url::to(['site/dashboards'])?>">Home </a>
 </li>
 <li class="nav-item active">
-<a class="nav-link" href="profile.html">My Profile</a>
+<a class="nav-link" href="<?=Url::to(['site/dashboards'])?>">My Profile</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="#">Search</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="#">Contact TNS</a>
+<a class="nav-link" href="<?=Url::to(['site/contact'])?>">Contact TNS</a>
 </li>
 </ul>
 <li class="nav-item dropdown">
