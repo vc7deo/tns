@@ -9,6 +9,7 @@ use backend\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\models\ProfileForm;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -37,7 +38,7 @@ class UserController extends Controller
     public function actionIndex()
     {
         $searchModel = new UserSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->get());
+        $dataProvider = $searchModel->search(Yii::$app->request->get(),'n');
         $dataProvider->pagination->pageSize=15;
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -85,15 +86,19 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $user = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->save(false);
-            return $this->redirect(['view', 'id' => $model->id]);
+        $model = new ProfileForm($user->getAttributes(['first_name','last_name','phone','email','package_id','expired_at','status']));
+        $model->old_email = $model->email;
+        $model->old_phone = $model->phone;
+        if ($model->load(Yii::$app->request->post()) && $model->profile($user)) {
+            Yii::$app->session->setFlash('success', 'You have successfully updated your profile.');
+        return $this->redirect(['view', 'id' => $user->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'user' => $user,
         ]);
     }
 

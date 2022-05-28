@@ -10,7 +10,9 @@ $this->title = $model->fullname;
 $this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-
+    <p>
+        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+    </p>
 <div class="user-view">
     <?= DetailView::widget([
         'model' => $model,
@@ -37,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 <h3>Profile</h3>
 <?php if(isset($model->profile)): ?>
-<?php if($model->profile->status == 0): ?>
+<?php if($model->profile->status == 0 && $model->profile->page_no == 2): ?>
     <p>
         <?= Html::a('Approve', ['approve', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
     </p>
@@ -90,7 +92,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'country',
                 'value' => function($model) {
-                    return $model->cntry->name;
+                    return !empty($model->cntry->name) ? $model->cntry->name : "";
                   },
 
             ],

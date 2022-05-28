@@ -12,7 +12,7 @@ class AdminLteAsset extends BaseAdminLteAsset
 {
     public $sourcePath = '@webroot/dist';
     public $css = [
-        'fontawesome-free/css/all.min.css',
+        'https://use.fontawesome.com/releases/v5.3.1/css/all.css',
         'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css',
         'css/icheck-bootstrap.min.css',
         'css/adminlte.min.css',

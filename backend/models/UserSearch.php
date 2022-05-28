@@ -38,17 +38,25 @@ class UserSearch extends User
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params,$type)
     {
         $query = User::find();
 
         // add conditions that should always apply here
-
+        if($type == 'p'){
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'sort'=> ['defaultOrder' => ['expired_at'=>SORT_ASC]]
+        ]);
+            $dataProvider->query->where(['>','package_id',1])->all();
+        }else{
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'sort'=> ['defaultOrder' => ['created_at'=>SORT_DESC]]
         ]);
-        $dataProvider->query->all();
+            $dataProvider->query->where(['package_id' => 1])->all();  
+        }
+        
 
         $this->load($params);
 

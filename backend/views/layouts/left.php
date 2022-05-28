@@ -30,18 +30,41 @@ $users = ['student','teacher','parent'];
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
  
           <li class="nav-item">
-          <?= Html::a('<i class="fas fa-users"></i> Users',
+          <?= Html::a('<i class="fas fa-users"></i> Normal Users',
               ['/user/index'],
               ['class' => ($cid == 'user') ? 'nav-link active' : 'nav-link']
               ) ?>
           </li>
-          
+           
+          <li class="nav-item">
+          <?= Html::a('<i class="fas fa-users"></i> Premium Users',
+              ['/premium/index'],
+              ['class' => ($cid == 'premium') ? 'nav-link active' : 'nav-link']
+              ) ?>
+          </li>
+          <li class="nav-item has-treeview <?=($cid=='settings') ? 'menu-open' : ''?>">
+            <a href="#" class="nav-link <?=($cid=='settings') ? 'active' : ''?>">
+              <i class="nav-icon fas fa-cogs"></i>
+              <p>
+                Settings
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
               <li class="nav-item">
-              <?= Html::a('<i class="nav-icon fas fa-cogs"></i> SMTP Settings',
+              <?= Html::a('Custom Settings',
+              ['/settings/index'],
+              ['class' => ($route == 'settings/index') ? 'nav-link active' : 'nav-link']
+              ) ?>
+              </li>
+              <li class="nav-item">
+              <?= Html::a('SMTP Settings',
               ['/settings/smtp'],
               ['class' => ($route == 'settings/smtp') ? 'nav-link active' : 'nav-link']
               ) ?>
-              </li>       
+              </li>
+            </ul>
+          </li>       
             </ul>
           </li>
         </ul>

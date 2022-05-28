@@ -40,7 +40,7 @@ class SignupForm extends Model
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
 
             [['first_name','last_name','phone'],'trim'],
-            [['first_name','last_name','phone','gender','dob'],'required'],
+            [['first_name','last_name','phone','gender'],'required'],
             ['phone', 'match', 'pattern' => '/^([0-9+]+)$/'],
             ['phone', 'match', 'pattern' => '/(?<!\()-|\+/','message' => 'Please enter phone number with country code'],
             ['phone', 'string', 'min' => 6, 'max' => 15, 'tooShort' => '{attribute} should be at least 6 digits' , 'tooLong' => '{attribute} should be at most 15 digits' ],
