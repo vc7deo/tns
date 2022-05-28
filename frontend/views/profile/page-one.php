@@ -124,7 +124,18 @@ if(!$model->isNewRecord){
           </div>
          
             <h3>Religious Information</h3>
-            <div class="row arrageFiled">
+                                    <div class="row arrageFiled">
+   <div class="col-xs-12 col-lg-12">
+            <?= $form->field($model, 'religion')->dropDownList(['Hindu' => 'Hindu']) ?>
+      </div>
+          </div>
+                    <div class="row arrageFiled">
+   <div class="col-xs-12 col-lg-12">
+            <?= $form->field($model, 'caste')->dropDownList(['Nair' => 'Nair']) ?>
+      </div>
+          </div>
+          <div class="row arrageFiled">
+
             	<div class="col-xs-12 col-lg-12">
 <?= $form->field($model, 'sub_caste')->dropDownList(['Adiyodi'      => 'Adiyodi', 
                                                      'Anthur Nair'  => 'Anthur Nair', 
@@ -153,6 +164,11 @@ if(!$model->isNewRecord){
                                                      ['prompt' => 'Select']) ?>
             </div>
         </div>
+                  <div class="row arrageFiled">
+   <div class="col-xs-12 col-lg-12">
+            <?= $form->field($model, 'other')->textInput() ?>
+      </div>
+          </div>
             <div class="row arrageFiled">
             	<div class="col-xs-12 col-lg-12">
 <?= $form->field($model, 'star')->dropDownList(['Aswathi' => 'Aswathi', 
