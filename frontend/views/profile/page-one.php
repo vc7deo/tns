@@ -126,17 +126,80 @@ if(!$model->isNewRecord){
             <h3>Religious Information</h3>
             <div class="row arrageFiled">
             	<div class="col-xs-12 col-lg-12">
-<?= $form->field($model, 'sub_caste')->dropDownList(['Menon' => 'Menon', 'Nambiar' => 'Nambiar', 'Pillai' => 'Pillai','Unnithan' => 'Unnithan'],['prompt' => 'Select']) ?>
+<?= $form->field($model, 'sub_caste')->dropDownList(['Adiyodi'      => 'Adiyodi', 
+                                                     'Anthur Nair'  => 'Anthur Nair', 
+                                                     'Illam'        => 'Illam',
+                                                     'Kaimal'       => 'Kaimal',
+                                                     'Kartha'       => 'Kartha', 
+                                                     'Kiryathil'    => 'Kiryathil', 
+                                                     'Kurup'        => 'Kurup',
+                                                     'Maniyani'     => 'Maniyani', 
+                                                     'Tharakan'     => 'Tharakan', 
+                                                     'Mannadiar'    => 'Mannadiar',
+                                                     'Marar'        => 'Marar', 
+                                                     'Menon'        => 'Menon', 
+                                                     'Nair'         => 'Nair',
+                                                     'Nambiar Nair' => 'Nambiar Nair', 
+                                                     'Panicker'     => 'Panicker', 
+                                                     'Pillai'       => 'Pillai',
+                                                     'Poduval'      => 'Poduval', 
+                                                     'Thampi'       => 'Thampi', 
+                                                     'Unnithan'     => 'Unnithan',
+                                                     'Vaniya Nair'  => 'Vaniya Nair',
+                                                     'Veluthedath Nair'     => 'Veluthedath Nair',
+                                                     'Vilakithala Nair'     => 'Vilakithala Nair',
+                                                     'Vellala Pillai'       => 'Vellala Pillai',
+                                                     'Chakkala Nair'        => 'Chakkala Nair'],
+                                                     ['prompt' => 'Select']) ?>
             </div>
         </div>
             <div class="row arrageFiled">
             	<div class="col-xs-12 col-lg-12">
-<?= $form->field($model, 'star')->dropDownList(['Aswathi' => 'Aswathi', 'Bharani' => 'Bharani', 'Rohini' => 'Rohini','Makayiram' => 'Makayiram'],['prompt' => 'Select']) ?>
+<?= $form->field($model, 'star')->dropDownList(['Aswathi' => 'Aswathi', 
+                                                'Bharani' => 'Bharani', 
+                                                'Karthika' => 'Karthika', 
+                                                'Rohini' => 'Rohini',
+                                                'Makayiram' => 'Makayiram',
+                                                'Thiruvathira' => 'Thiruvathira',
+                                                'Punartham' => 'Punartham',
+                                                'Pooyam' => 'Pooyam',
+                                                'Aayilyam' => 'Aayilyam',
+                                                'Makam'=> 'Makam',
+                                                'Pooram' => 'Pooram',
+                                                'Uthram' => 'Uthram',
+                                                'Atham' => 'Atham',
+                                                'Chithira' => 'Chithira',
+                                                'Chothi' => 'Chothi',
+                                                'Vishakam' => 'Vishakam',
+                                                'Anizham' => 'Anizham',
+                                                'Thrikketta' => 'Thrikketta',
+                                                'Moolam' => 'Moolam',
+                                                'Pooradam' => 'Pooradam',
+                                                'Uthradam' => 'Uthradam',
+                                                'Thiruvonam' => 'Thiruvonam',
+                                                'Avittam' => 'Avittam',
+                                                'Chathayam' => 'Chathayam',
+                                                'Pooruruthathi' => 'Pooruruthathi',
+                                                'Uthrattathi' => 'Uthrattathi',
+                                                'Revathi' => 'Revathi'],
+                                                ['prompt' => 'Select']) ?>
             </div>
         </div>
             <div class="row arrageFiled">
             <div class="col-xs-12 col-lg-12">
-<?= $form->field($model, 'rasi')->dropDownList(['Medam' => 'Medam', 'Edavam' => 'Edavam', 'Midhunam' => 'Midhunam','Karkidakam' => 'Karkidakam'],['prompt' => 'Select']) ?>
+<?= $form->field($model, 'rasi')->dropDownList(['Chingam' => 'Chingam', 
+                                                'Kanni' => 'Kanni', 
+                                                'Thulam' => 'Thulam',
+                                                'Vrischikam' => 'Vrischikam', 
+                                                'Dhanu' => 'Dhanu', 
+                                                'Makaram' => 'Makaram',
+                                                'Kumbham' => 'Kumbham', 
+                                                'Meenam' => 'Meenam', 
+                                                'Medam' => 'Medam',
+                                                'Edavam' => 'Edavam', 
+                                                'Mithunam' => 'Mithunam', 
+                                                'Karkidakam' => 'Karkidakam'],
+                                                ['prompt' => 'Select']) ?>
             </div>
             </div>
   
