@@ -9,6 +9,11 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use frontend\models\AvatarForm;
+use frontend\models\ProfileForm;
+use yii\web\UploadedFile;
+use common\helpers\Cms;
+use yii\bootstrap4\ActiveForm;
 
 /**
  * ProfileController implements the CRUD actions for Profile model.
@@ -38,7 +43,16 @@ class ProfileController extends Controller
             ],
         ];
     }
-
+    // public function actions()
+    // {
+    //     return [
+    //         'uploadPhoto' => [
+    //             'class' => 'budyaga\cropper\actions\UploadAction',
+    //             'url' => Yii::getAlias('@site/uploads/profile'),
+    //             'path' => Yii::getAlias('@frontend/web/uploads/profile'),
+    //         ]
+    //     ];
+    // }
      public function actionIndex()
      {
         $token = $user = Yii::$app->user->identity->token;
@@ -53,7 +67,134 @@ class ProfileController extends Controller
         }     
     }
 
+    public function actionEdit()
+    {   
+        $user= Yii::$app->user->identity;
+        $model = $this->findModel($user->id);
+        $photo1 = $model->photo1;
+        $photo2 = $model->photo2;
+        $avatar = new AvatarForm();
+        $account = new ProfileForm($user->getAttributes(['first_name','last_name','phone','email']));
+        $account->old_email = $account->email;
+        $account->old_phone = $account->phone;
+        if ($account->load(Yii::$app->request->post()) && $account->profile($user)) {
+            Yii::$app->session->setFlash('success', 'You have successfully updated your profile.');
+        return $this->refresh();
+        }
+        if ($avatar->load(Yii::$app->request->post())) {
+            $avatar->image1 = UploadedFile::getInstance($avatar,'image1');
+            $avatar->image2 = UploadedFile::getInstance($avatar,'image2');
+            if($avatar->image1 != NULL){
+            $model->photo1 = Cms::clean($avatar->image1->baseName).'-'.time().'.'.$avatar->image1->extension;
+            }
+            if($avatar->image2 != NULL){
+            $model->photo2 = Cms::clean($avatar->image2->baseName).'-'.time().'.'.$avatar->image2->extension;
+            }
+             $model->save(false);
+             //print_r($avatar->getErrors());exit();
+            if ($avatar->image1 != NULL){
+                $avatar->image1->saveAs(Yii::getAlias('@frontend/web/uploads/profile/').$model->photo1);
+                if(file_exists(Yii::getAlias('@frontend/web/uploads/profile/').$photo1) && !empty($photo1)){
+                     unlink(Yii::getAlias('@frontend/web/uploads/profile/').$photo1);
+                 }
 
+            }
+            if ($avatar->image2 != NULL){
+                $avatar->image2->saveAs(Yii::getAlias('@frontend/web/uploads/profile/').$model->photo2);
+                if(file_exists(Yii::getAlias('@frontend/web/uploads/profile/').$photo2) && !empty($photo2)){
+                     unlink(Yii::getAlias('@frontend/web/uploads/profile/').$photo2);
+                 }
+            }
+         
+         return $this->refresh();
+        }
+        return $this->render('edit', [
+            'model' => $model,
+            'user' => $user,
+            'avatar' => $avatar,
+            'account' => $account,
+        ]);
+    }
+    public function actionBasic()
+    {   
+        $user= Yii::$app->user->identity;
+        $model = $this->findModel($user->id);
+
+        $model->scenario = 'page-one';
+        if ($model->load(Yii::$app->request->post())) {
+            //$model->dob = strtotime($model->dob);
+            $model->languages_known = implode(',',$model->languages_known);
+            $model->save(false);
+         return $this->refresh();
+        }
+        return $this->render('basic', [
+            'model' => $model,
+            'user' => $user,
+        ]);
+    }
+    public function actionFamily()
+    {   
+        $user= Yii::$app->user->identity;
+        $model = $this->findModel($user->id);
+
+        $model->scenario = 'page-two';
+        if ($model->load(Yii::$app->request->post())) {
+            $model->save(false);
+         return $this->refresh();
+        }
+        return $this->render('family', [
+            'model' => $model,
+            'user' => $user,
+        ]);
+    }
+    public function actionPhotoOne()
+    {
+        $id = Yii::$app->user->identity->id;
+        $profile = $this->findModel($id);
+        // $model = new AvatarForm($profile->getAttributes(['photo1','photo2']));
+        $model = new AvatarForm();
+        //$photo1 = $model->photo1;
+        //$photo2 = $model->photo2;
+        if ($model->load(Yii::$app->request->post())) {
+            $model->photo1 = UploadedFile::getInstance($model,'photo1');
+            if($model->photo1 != NULL){
+            $profile->photo1 = Cms::clean($model->photo1).'-'.time().'.'.$model->photo1->extension;
+            }
+           
+            if ($model->photo1 != NULL){
+                $model->photo1->saveAs(Yii::getAlias('@frontend/web/uploads/profile/').$model->photo1);
+            }
+
+         
+         return $this->redirect(['index']);
+        }
+         return $this->renderAjax('_photo_one', [
+             'model' => $model
+         ]);
+        
+    }
+    public function actionPhotoTwo()
+    {
+        $id = Yii::$app->user->identity->id;
+        $user = $this->findModel($id);
+        $model = new AvatarForm($user->getAttributes(['photo']));
+        $photo = $model->photo;
+        if ($model->load(Yii::$app->request->post())) {
+            $model->photo = str_replace(Yii::getAlias('@site/uploads/profile/'),'',$model->photo);
+            if($model->profile($user)){
+                 if(file_exists(Yii::getAlias('@frontend/web/uploads/profile/').$photo) && !empty($photo)){
+                     unlink(Yii::getAlias('@frontend/web/uploads/profile/').$photo);
+                 }
+            Yii::$app->session->setFlash('success', 'Profile picture have been saved successfully.');
+            }
+         
+         return $this->redirect(['index']);
+        }
+         return $this->renderAjax('_photo_two', [
+             'model' => $model
+         ]);
+        
+    }
     public function actionPageOne($token)
     {   
         if(Yii::$app->params['user.profile'] != 'PROFILE_PAGE_ONE'){
@@ -103,7 +244,18 @@ class ProfileController extends Controller
         }
         $this->layout = 'profile';
         return $this->render('not-approved');
-    }   
+    } 
+    public function actionValidation() {
+        $user= Yii::$app->user->identity;
+        $model = new ProfileForm($user->getAttributes(['first_name','last_name','phone','email']));                
+        $model->old_email = $model->email;
+        $model->old_phone = $model->phone;
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
+     
+    }  
     protected function findModel($id)
     {
         if (($model = Profile::findOne(['user_id' => $id])) !== null) {

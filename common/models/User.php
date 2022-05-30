@@ -221,4 +221,14 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return ucwords(preg_replace('/\s+/', ' ',$this->first_name.' '.$this->last_name));
     }
+    public function getAvatar()
+    {
+        if(!empty($this->profile->photo1)){
+            return Yii::getAlias('@site/uploads/profile/') . $this->profile->photo1;
+        }elseif(!empty($this->profile->photo2)){
+            return Yii::getAlias('@site/uploads/profile/'). $this->profile->photo2;
+        }else{
+            return Yii::getAlias('@site/dist/images/user.jpg');
+        }
+    }
 }

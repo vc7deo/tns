@@ -42,34 +42,32 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        // 'assetManager' => [
-        //     'bundles' => [
+        'assetManager' => [
+            'bundles' => [
 
-        //         'yii\web\JqueryAsset' => [
-        //             'sourcePath' => '@webroot/dist',
-        //             // 'basePath' => '@webroot/dist',
-        //             // 'baseUrl' => '@web',
-        //             'js' => [
-        //                 'js/jquery.min.js',
-        //             ]
-        //         ],
-        //         'yii\bootstrap4\BootstrapPluginAsset' => [
-        //             'sourcePath' => '@webroot/dist',
-        //             'js'=>[
-        //                 'js/bootstrap.min.js',
-        //             ]
-        //         ],
-        //         'yii\bootstrap4\BootstrapAsset' => [
-        //             'sourcePath' => '@webroot/dist',
-        //             'css' => [
-        //                     'css/bootstrap.min.css',
-        //             ],
-        //         ],
-        //         'kartik\grid\GridViewAsset' => [
-        //             'css' => [],
-        //         ]
-        //     ],
-        // ],
+                // 'yii\web\JqueryAsset' => [
+                //     'sourcePath' => '@webroot/dist',
+                //     // 'basePath' => '@webroot/dist',
+                //     // 'baseUrl' => '@web',
+                //     'js' => [
+                //         'js/jquery.min.js',
+                //     ]
+                // ],
+                'yii\bootstrap\BootstrapPluginAsset' => [
+                    'sourcePath' => '@webroot/dist',
+                    'js'=>[
+                    ]
+                ],
+                'yii\bootstrap\BootstrapAsset' => [
+                    'sourcePath' => '@webroot/dist',
+                    'css' => [
+                    ],
+                ],
+                // 'kartik\grid\GridViewAsset' => [
+                //     'css' => [],
+                // ]
+            ],
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -82,7 +80,15 @@ return [
                 '<alias:[\w-]+>' => 'site/<alias>',
             ],
         ],
-        
+    //     'view'=> [
+    //         'theme' => [
+    //             'pathMap' => [
+    //                 '@budyaga/cropper/views' => [
+    //                     '@frontend/views/profile/', // Override
+    //                 ],
+    //             ],
+    //         ],
+    // ],        
     ],
     'params' => $params,
 ];

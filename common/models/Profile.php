@@ -60,6 +60,8 @@ class Profile extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+    public $file1;
+    public $file2;
     public static function tableName()
     {
         return 'profile';
@@ -80,6 +82,8 @@ class Profile extends \yii\db\ActiveRecord
             [['height', 'weight'], 'number'],
             [['education', 'education_details', 'employed_in', 'occupation', 'occupation_details', 'income', 'religion', 'caste', 'sub_caste', 'other', 'star', 'rasi', 'gothram', 'fathers_occupation', 'mothers_occupation', 'origin', 'state', 'city', 'citizenship', 'hobbies', 'interests', 'photo1', 'photo2', 'photo3'], 'string', 'max' => 255],
             [['languages_known','dob'], 'safe'],
+            [['file1','file2'],'safe'],
+            [['file1','file2'], 'image','minWidth' => 200, 'minHeight' => 200, 'maxWidth' => 500, 'maxHeight' => 500, 'extensions' => 'png, jpg, jpeg'],
         ];
     }
 
