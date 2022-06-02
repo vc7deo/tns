@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use Yii;
 
 use common\models\Profile;
+use common\models\User;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -14,6 +15,7 @@ use frontend\models\ProfileForm;
 use yii\web\UploadedFile;
 use common\helpers\Cms;
 use yii\bootstrap4\ActiveForm;
+use frontend\models\SearchForm;
 
 /**
  * ProfileController implements the CRUD actions for Profile model.
@@ -194,6 +196,49 @@ class ProfileController extends Controller
              'model' => $model
          ]);
         
+    }
+    public function actionSearch(){
+
+        $user= Yii::$app->user->identity;
+        $model = new SearchForm();
+        if ($model->load(Yii::$app->request->post())  && !empty(Yii::$app->params['user.search'])) 
+        {   
+            $term = $model->term;
+            if(!empty($term)){
+                $gender = Yii::$app->params['user.search'];
+                $dataProvider = new ActiveDataProvider([
+                'query' => User::find(),
+                'sort'=> ['defaultOrder' => ['created_at'=>SORT_DESC]]
+                ]);
+                $dataProvider->query
+                            //->where(['gender' => $gender])
+                            ->andWhere(['or',
+                                   ['like','username',$term],
+                                   ['like','first_name',$term],
+                                   ['like','last_name',$term]
+                            ])
+                            ->all();
+            }else{
+                $dataProvider = new ActiveDataProvider([
+                    'query' => User::find(),
+                ]);
+                $dataProvider->query
+                                ->where(['status' => 0])
+                                ->all();
+                }
+        }else{
+            $dataProvider = new ActiveDataProvider([
+                'query' => User::find(),
+            ]);
+            $dataProvider->query
+                            ->where(['status' => 0])
+                            ->all();
+        }
+        return $this->render('search',[
+            'user' => $user,
+            'model' => $model,
+            'dataProvider' => $dataProvider,
+        ]);
     }
     public function actionPageOne($token)
     {   

@@ -21,7 +21,7 @@ $cid = Yii::$app->controller->id;
 <a class="nav-link" href="<?=Url::to(['site/dashboards'])?>">My Profile</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="#">Search</a>
+<a class="nav-link" href="<?=Url::to(['profile/search'])?>">Search</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="<?=Url::to(['site/contact'])?>">Contact TNS</a>

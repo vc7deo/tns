@@ -26,6 +26,13 @@ class Settings implements BootstrapInterface {
     public function bootstrap($app) {
         if (!Yii::$app->user->isGuest) {
             $user = Yii::$app->user->identity;
+            if($user->gender == 'Male'){
+                Yii::$app->params['user.search'] = 'Female';
+            }elseif($user->gender == 'Female'){
+                Yii::$app->params['user.search'] = 'Male';
+            }else{
+                Yii::$app->params['user.search'] = '';
+            }
             if($user->profile){
                 if(isset($user->profile->page_no) && $user->profile->page_no == 1){
                     Yii::$app->params['user.profile'] = 'PROFILE_PAGE_TWO';
@@ -35,6 +42,12 @@ class Settings implements BootstrapInterface {
                     Yii::$app->params['user.profile'] = 'PROFILE_PAGE_ONE';
                 }else{
                     Yii::$app->params['user.profile'] = 'PROFILE_APPROVED';
+                }
+                $time = time();
+                if(empty($user->active) || date('Ymd',$user->active) != date('Ymd',$time)){
+                    \Yii::$app->db->createCommand()
+                        ->update('user', ['active' => $time], ['id' => $user->id])
+                        ->execute();
                 }  
             }else{
                 Yii::$app->params['user.profile'] = 'PROFILE_PAGE_ONE';

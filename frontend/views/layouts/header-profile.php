@@ -20,7 +20,6 @@ $cid = Yii::$app->controller->id;
 <img src="<?=$directoryAsset?>/images/user.jpg">
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-<a class="dropdown-item" href="#">Edit Profile</a>
 <a class="dropdown-item" href="<?=Url::to(['site/logout'])?>" data-method="post">Logout</a>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="#">Help</a>

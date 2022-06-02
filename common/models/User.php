@@ -231,4 +231,15 @@ class User extends ActiveRecord implements IdentityInterface
             return Yii::getAlias('@site/dist/images/user.jpg');
         }
     }
+    public function getAge()
+    {
+        if(!empty($this->profile->dob)){
+            $dateOfBirth = date('Y-m-d',$this->profile->dob);
+            $today = date("Y-m-d");
+            $diff = date_diff(date_create($dateOfBirth), date_create($today));
+            return $diff->format('%y');
+        }
+
+        return '';
+    }
 }

@@ -73,7 +73,7 @@ class Profile extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['height', 'weight','marital_status', 'body_type', 'physical_status', 'eating_habits', 'drinking_habits', 'smoking_habits'], 'required', 'on' => 'page-one'],
+            [['height', 'weight','marital_status', 'body_type', 'physical_status', 'eating_habits', 'drinking_habits', 'smoking_habits','dob'], 'required', 'on' => 'page-one'],
             [['family_type', 'family_status', 'brothers', 'sisters', 'country', 'state', 'city', 'citizenship','about_me'], 'required', 'on' => 'page-two'],
             [['sudha_jathakam', 'brothers', 'sisters', 'country', 'user_id', 'page_no', 'status', 'edit_status'], 'integer'],
             [['about_me'], 'string'],
