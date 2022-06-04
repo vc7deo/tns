@@ -1,5 +1,7 @@
 <?php
 use common\helpers\Cms;
+use yii\bootstrap4\Html;
+
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist');
 ?>
 <div class="boxSizing">
@@ -22,9 +24,9 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist')
 <span>Send Interest On:</span> Yesterday
 </div>
 <div class="profileView">
-<button>
-View Profile
-</button>
+
+<?= Html::a('View Profile', ['/user/profile','token' => $model->token],['class' => 'btn btn-success']) ?>
+
 </div>
 </div>
 <div class="lastLogin">
