@@ -118,7 +118,7 @@ class PremiumController extends Controller
     public function actionApprove($id)
     {
         $user = $this->findModel($id);
-        if (($model = Profile::findOne($user->id)) !== null) {
+         if (($model = Profile::findOne(['user_id' => $user->id])) !== null) {
             $model->status = 1;
             $model->save(false);
         }

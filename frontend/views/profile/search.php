@@ -1,9 +1,30 @@
 <?php
 use yii\bootstrap4\Html;
 use yii\helpers\Url;
+use yii\helpers\ArrayHelper;
+
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist');
 use yii\bootstrap4\ActiveForm;
 use yii\widgets\ListView;
+use common\models\Interest;
+$my_id= Yii::$app->user->identity->id;
+// $interests = Interest::find()->where(['or',['user_from' => $my_id],['user_to' => $my_id]])->asArray()->all();
+$query1 = (new \yii\db\Query())
+    ->select("user_to AS user, user_by, sent_at")
+    ->from('interest')
+    ->where(['user_from' => $my_id]);
+
+$query2 = (new \yii\db\Query())
+    ->select("user_from AS user, user_by, sent_at")
+    ->from('interest')
+    ->where(['user_to' => $my_id]);
+
+$query3 = $query1->union($query2);
+$results = $query3->createCommand()->queryAll();
+// $to = ArrayHelper::index($interests, 'user_to');
+// $from = ArrayHelper::index($interests, 'user_from');
+$users = ArrayHelper::index($results, 'user');
+//print_r($results);exit();
 ?>
 <div class="container">
 <div class="page-wrapper">
@@ -52,9 +73,9 @@ ListView::widget([
 
     ],
     'layout' => "{items}\n{pager}",
-    'itemView' => function ($model, $key, $index, $widget) {
+    'itemView' => function ($model, $key, $index, $widget) use($users) {
         if(isset($model->profile)){
-          return $this->render('_search',['model' => $model]);  
+          return $this->render('_search',['model' => $model,'users' => $users]);  
         }
     },
 ]);

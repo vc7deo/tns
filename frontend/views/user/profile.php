@@ -1,7 +1,23 @@
 <?php
-$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist');
+use yii\bootstrap4\Html;
 use common\helpers\Cms;
+use yii\helpers\ArrayHelper;
+$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist');
 
+$my_id= Yii::$app->user->identity->id;
+$query1 = (new \yii\db\Query())
+    ->select("user_to AS user, user_by, sent_at")
+    ->from('interest')
+    ->where(['user_from' => $my_id]);
+
+$query2 = (new \yii\db\Query())
+    ->select("user_from AS user, user_by, sent_at")
+    ->from('interest')
+    ->where(['user_to' => $my_id]);
+
+$query3 = $query1->union($query2);
+$results = $query3->createCommand()->queryAll();
+$users = ArrayHelper::index($results, 'user');
 ?>
 <div class="container">
 <div class="page-wrapper">
@@ -35,7 +51,16 @@ use common\helpers\Cms;
 <li>Studied <span><?= $model->profile->education ?></span></li>
 <li><?= $model->profile->occupation ?></li>
 </ul>
-<button class="interestBtns"><i class="fa fa-heart" aria-hidden="true"></i> Send interest</button>
+<?php if(array_key_exists($model->id, $users)):?>
+<?php if($users[$model->id]['user'] == $users[$model->id]['user_by']):?>
+<span>Received an interest On:</span> <?= Cms::timeago($users[$model->id]['sent_at']); ?>
+<?php else:?>
+<span>Sent an interest On:</span> <?= Cms::timeago($users[$model->id]['sent_at']); ?>
+<?php endif;?>
+<?php else:?>
+<?= Html::a('<i class="fa fa-heart" aria-hidden="true"></i> Send interest', ['/user/send','token' => $model->token],['class' => 'interestBtns']) ?>
+<?php endif;?>
+
 </div>
 </div>
 </div>

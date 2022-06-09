@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use Yii;
 
 use common\models\Profile;
+use common\models\Interest;
 use common\models\User;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
@@ -211,7 +212,7 @@ class ProfileController extends Controller
                 'sort'=> ['defaultOrder' => ['created_at'=>SORT_DESC]]
                 ]);
                 $dataProvider->query
-                            //->where(['gender' => $gender])
+                            ->where(['gender' => $gender])
                             ->andWhere(['or',
                                    ['like','username',$term],
                                    ['like','first_name',$term],
@@ -301,6 +302,22 @@ class ProfileController extends Controller
         }
      
     }  
+    public function actionSend($token)
+    {
+        $my_id= Yii::$app->user->identity->id;
+        if (($user = User::findOne(['token' => $token])) !== null) {
+            $model = new Interest();
+            $model->user_to = $user->id;
+            $model->user_from = $my_id;
+            $model->user_by = $my_id;
+            $model->sent_at = time();
+            $model->user_by = $my_id;
+            $model->save();
+            return $this->redirect(Yii::$app->request->referrer);
+        }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
+    }
     protected function findModel($id)
     {
         if (($model = Profile::findOne(['user_id' => $id])) !== null) {
