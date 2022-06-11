@@ -150,6 +150,36 @@ class ProfileController extends Controller
             'user' => $user,
         ]);
     }
+    public function actionInterestSend()
+    {   
+        $user = Yii::$app->user->identity;
+        $query = User::find();
+        $dataProvider = new ActiveDataProvider([
+          'query' => $query,
+        ]);
+        $query->joinWith(['sends'])->where(['user_from' => $user->id])->all();
+//         echo "<pre>";
+// print_r($dataProvider->getModels());exit();
+        return $this->render('interest-send',[
+            'user' => $user,
+            'dataProvider' => $dataProvider,
+        ]);
+  
+    }
+    public function actionInterestReceive()
+    {   
+        $user = Yii::$app->user->identity;
+        $query = User::find();
+        $dataProvider = new ActiveDataProvider([
+          'query' => $query,
+        ]);
+        $query->joinWith(['receives'])->where(['user_to' => $user->id])->all();
+        return $this->render('interest-receive',[
+            'user' => $user,
+            'dataProvider' => $dataProvider,
+        ]);
+  
+    }
     public function actionPhotoOne()
     {
         $id = Yii::$app->user->identity->id;

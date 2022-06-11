@@ -242,4 +242,20 @@ class User extends ActiveRecord implements IdentityInterface
 
         return '';
     }
+    public function getSends()
+    {
+        return $this->hasMany(Interest::className(), ['user_to' => 'id']);
+    }
+    public function getSend()
+    {
+        return $this->hasOne(Interest::className(), ['user_to' => 'id']);
+    }
+    public function getReceives()
+    {
+        return $this->hasMany(Interest::className(), ['user_from' => 'id']);
+    }
+    public function getReceive()
+    {
+        return $this->hasOne(Interest::className(), ['user_from' => 'id']);
+    }
 }

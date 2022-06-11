@@ -2,6 +2,8 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist');
+$action = Yii::$app->controller->action->id;
+$edits = ['edit','basic','family'];
 ?>
 <div class="profileSide">
 <div class="upgradient">
@@ -19,13 +21,13 @@ Upgrade Your Profile
 </div>
 </div>
 <li class="nav-item">
-<a class="nav-link active" href="<?=Url::to(['profile/edit'])?>"><img src="<?=$directoryAsset?>/images/edit.png" alt=""/> Edit Profile</a>
+<a class="nav-link <?=(in_array($action,$edits) === true) ? 'active' : '';?>" href="<?=Url::to(['profile/edit'])?>"><img src="<?=$directoryAsset?>/images/edit.png" alt=""/> Edit Profile</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" id="send-tab" data-toggle="tab" role="tab" aria-controls="send" aria-selected="false" href="#send"><img src="<?=$directoryAsset?>/images/send.png" alt=""/> Send Intrest</a>
+<a class="nav-link <?=($action == 'interest-send') ? 'active' : '';?>"  href="<?=Url::to(['profile/interest-send'])?>"><img src="<?=$directoryAsset?>/images/send.png" alt=""/> Send Intrest</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" id="receive-tab" data-toggle="tab" role="tab" aria-controls="receive" aria-selected="false" href="#receive"><img src="<?=$directoryAsset?>/images/receive.png" alt=""/> Receive Intrest</a>
+<a class="nav-link <?=($action == 'interest-receive') ? 'active' : '';?>" href="<?=Url::to(['profile/interest-receive'])?>"><img src="<?=$directoryAsset?>/images/receive.png" alt=""/> Receive Intrest</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="<?=Url::to(['site/logout'])?>" data-method="post" ><img src="<?=$directoryAsset?>/images/logout.png" alt=""  /> Logout</a>
