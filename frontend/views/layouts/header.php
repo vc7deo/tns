@@ -15,10 +15,10 @@ $cid = Yii::$app->controller->id;
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 <ul class="navbar-nav mr-auto topnavHead">
 <li class="nav-item">
-<a class="nav-link" href="<?=Url::to(['site/dashboards'])?>">Home </a>
+<a class="nav-link" href="<?=Url::to(['home/index'])?>">Home </a>
 </li>
 <li class="nav-item active">
-<a class="nav-link" href="<?=Url::to(['site/dashboards'])?>">My Profile</a>
+<a class="nav-link" href="<?=Url::to(['home/profile'])?>">My Profile</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="<?=Url::to(['profile/search'])?>">Search</a>
@@ -29,7 +29,11 @@ $cid = Yii::$app->controller->id;
 </ul>
 <li class="nav-item dropdown">
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<?php if (!Yii::$app->user->isGuest):?>
+	<img src="<?=Yii::$app->user->identity->avatar?>">
+<?php else: ?>
 <img src="<?=$directoryAsset?>/images/user.jpg">
+<?php endif;?>
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 <a class="dropdown-item" href="<?=Url::to(['profile/edit'])?>">Edit Profile</a>

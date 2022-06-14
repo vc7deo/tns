@@ -6,7 +6,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist')
 <div class="boxSizing">
 <div class="ft-detail">
 <div class="userSelect">
-<img src="<?=$model->avatar?>" alt=""/>
+<img src="<?=$model->avatar?>" alt="<?=$model->fullname?>"/>
 </div>
 <div class="userDetails">
 <ul>

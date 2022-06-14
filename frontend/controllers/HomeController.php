@@ -9,10 +9,13 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\bootstrap4\ActiveForm;
+use yii\data\ActiveDataProvider;
+use common\models\User;
+
 /**
  * Site controller
  */
-class DashboardController extends Controller
+class HomeController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -47,9 +50,23 @@ class DashboardController extends Controller
     public function actionIndex()
     {
         $user = Yii::$app->user->identity;
+        $gender = Yii::$app->params['user.search'];
+        $dataProvider = new ActiveDataProvider([
+            'query' => User::find(),
+            'sort'=> ['defaultOrder' => ['created_at'=>SORT_DESC]]
+        ]);
+        $dataProvider->query
+            ->where(['gender' => $gender])->all();
         return $this->render('index', [
             'user' => $user,
+            'dataProvider' => $dataProvider,
         ]);
     }
-   
+     public function actionProfile()
+    {
+        $user = Yii::$app->user->identity;
+        return $this->render('profile', [
+            'user' => $user,
+        ]);
+    }  
 }

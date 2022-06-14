@@ -66,7 +66,7 @@ class ProfileController extends Controller
         }elseif(Yii::$app->params['user.profile'] == 'PROFILE_NOT_APPROVED'){
             return $this->redirect(['/profile/not-approved', 'token' => $token]);
         }else{
-            return $this->redirect(['/dashboard/index']);
+            return $this->redirect(['/home/index']);
         }     
     }
 
