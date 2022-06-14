@@ -296,7 +296,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist')
 <label>Contact Number</label>
 </div>
 <div class="col-xs-12 col-lg-7">
-<label class="phoneShow">xxxxxxxxxx</label>
+<label class="phoneShow"><?= $user->phone ?></label>
 </div>
 </div>
 <div class="row arrageFiled">

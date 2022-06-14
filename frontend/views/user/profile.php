@@ -85,10 +85,10 @@ $users = ArrayHelper::index($results, 'user');
 </div>
 <div class="row arrageFiled">
 <div class="col-xs-12 col-lg-5">
-<label>Date of birth</label>
+<label>Age</label>
 </div>
 <div class="col-xs-12 col-lg-7">
-<label><?= date("d-m-Y",$model->profile->dob) ?></label>
+<label><?=($model->age != '') ? $model->age. ' Yrs ': '' ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
@@ -322,14 +322,14 @@ $users = ArrayHelper::index($results, 'user');
 <label><?= $model->profile->origin ?></label>
 </div>
 </div>
-<div class="row arrageFiled">
+<?php /*<div class="row arrageFiled">
 <div class="col-xs-12 col-lg-5">
 <label>Contact Number</label>
 </div>
 <div class="col-xs-12 col-lg-7">
 <label class="phoneShow">xxxxxxxxxx</label>
 </div>
-</div>
+</div> */ ?>
 <div class="row arrageFiled">
 <div class="col-xs-12 col-lg-5">
 <label>No. of Brothers</label>
