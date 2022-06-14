@@ -26,6 +26,13 @@ class Settings implements BootstrapInterface {
     public function bootstrap($app) {
         if (!Yii::$app->user->isGuest) {
             $user = Yii::$app->user->identity;
+            $time = time();
+            Yii::$app->params['user.premium'] = false;
+            if(isset($user->package_id) && $user->package_id > 1){
+                if(!empty($user->expired_at) && ($user->expired_at > $time)){
+                    Yii::$app->params['user.premium'] = true;
+                }
+            }
             if($user->gender == 'Male'){
                 Yii::$app->params['user.search'] = 'Female';
             }elseif($user->gender == 'Female'){
@@ -43,7 +50,7 @@ class Settings implements BootstrapInterface {
                 }else{
                     Yii::$app->params['user.profile'] = 'PROFILE_APPROVED';
                 }
-                $time = time();
+                
                 if(empty($user->active) || date('Ymd',$user->active) != date('Ymd',$time)){
                     \Yii::$app->db->createCommand()
                         ->update('user', ['active' => $time], ['id' => $user->id])
