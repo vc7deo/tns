@@ -29,7 +29,10 @@ $users = ArrayHelper::index($results, 'user');
 <div class="detailSeprate">
 <div class="uploadImgProfile">
 <div class="editUserPic">
-<img src="<?= $model->avatar ?>" />
+<img src="<?= (isset($model->avatar))? $model->avatar : $model->avatar ?>" />
+</div>
+<div class="editUserPic">
+<img src="<?= (isset($model->avatar))? $model->avatar : $model->avatar ?>" />
 </div>
 <div class="aboutMe">
 <h3><?= $model->fullname ?></h3>
