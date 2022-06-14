@@ -20,24 +20,24 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="address">
-                                Convent Road II, Thottakkattukara, 
-                                <div>Aluva, Kerala</div>
-                                <div>Pin: 683108</div>
+                                <?= Yii::$app->params['custom.addressline1']; ?>
+                                <div><?= Yii::$app->params['custom.addressline2']; ?></div>
+                                <div>Pin: <?= Yii::$app->params['custom.pincode']; ?></div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="phone">
                                 <div class="mb-2">
                                     Secretary: 
-                                <span>9087568900</span>
+                                <span><?= Yii::$app->params['custom.secretary-ph']; ?></span>
                             </div>
                             <div class="mb-2">
                                 President: 
-                                <span>9087568900</span>
+                                <span><?= Yii::$app->params['custom.president-ph']; ?></span>
                             </div>
                             <div class="mb-2">
                                 Office: 
-                                <span>9087568900</span>
+                                <span><?= Yii::$app->params['custom.office-ph']; ?></span>
                             </div>
                         </div>
                     </div>
