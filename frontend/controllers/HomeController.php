@@ -56,7 +56,8 @@ class HomeController extends Controller
             'sort'=> ['defaultOrder' => ['created_at'=>SORT_DESC]]
         ]);
         $dataProvider->query
-            ->where(['gender' => $gender])->all();
+            ->where(['gender' => $gender])
+            ->andWhere(['status' => 10])->all();
         return $this->render('index', [
             'user' => $user,
             'dataProvider' => $dataProvider,

@@ -17,7 +17,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist')
 <div class="profileSmallImg">
 <img src="<?=$user->avatar?>" alt="user">
 </div>
-<h5>Good Morning !</h5>
+<h5></h5>
 <h3><?= $user->fullname ?></h3>
 <h4><?= $user->username ?></h4>
 </div>
