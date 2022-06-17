@@ -56,3 +56,27 @@
 .invalid-feedback{
     display: block !important;
 }
+
+/*********************custom csss*************************************************/
+.wrapper .main-sidebar.sidebar-dark-primary {
+    background-color: transparent;
+}
+
+.wrapper .brand-text.font-weight-light {
+    color: #21346d !important;
+    font-weight: 600 !important;
+}
+
+.wrapper .info a {color: #21346d; font-weight: 500 !important;font-size: 20px;}
+.wrapper .info a:hover {color: #21346d !important;}
+
+.wrapper .sidebar ul.nav.nav-pills.nav-sidebar li a {
+    color: #21346d !important;
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.wrapper .sidebar ul.nav.nav-pills.nav-sidebar li a.nav-link.active{
+    color: #fff !important;
+    background: #21346d !important;
+}

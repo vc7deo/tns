@@ -13,7 +13,10 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="flex-home">
         <div class="home-banner" style="background: url(<?=$directoryAsset?>/images/banner.svg)">
-        
+        <div class="nairSamajam">
+            തോട്ടക്കാട്ടുകര നായർ സമാജം 
+നായർ മാട്രിമോണി
+        </div>
             <div class="container">
             <div class="loginAddress">
                     <div class="row">
@@ -79,7 +82,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                               <div class="forgotPassword">
             <?= Html::a('Resend new verification email', ['site/resend-verification-email']) ?>
-            <?= Html::a('Forgot password?', ['site/request-password-reset']) ?>.
+            <?= Html::a('Forgot password?', ['site/request-password-reset']) ?>
                 </div>
             <?php ActiveForm::end(); ?>
             </div>

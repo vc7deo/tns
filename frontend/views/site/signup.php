@@ -14,7 +14,10 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="flex-home">
         <div class="home-banner" style="background: url(<?=$directoryAsset?>/images/banner.svg)">
-        
+                <div class="nairSamajam">
+            തോട്ടക്കാട്ടുകര നായർ സമാജം 
+നായർ മാട്രിമോണി
+        </div>
             <div class="container">
             <div class="loginAddress">
                     <div class="row">
