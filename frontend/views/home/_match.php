@@ -2,7 +2,7 @@
 use yii\bootstrap4\Html;
 ?>
 <div class="boxSizingHome">
-<div class="userSelectHome">
+<div class="userSelectDemo">
 <img src="<?=$model->avatar?>" alt="<?=$model->fullname?>"/>
 </div>
 <div class="homeuserDetails">

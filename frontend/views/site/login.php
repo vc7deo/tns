@@ -6,6 +6,7 @@
 
 use yii\bootstrap4\Html;
 use yii\bootstrap4\ActiveForm;
+use yii\helpers\Url;
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist');
 
 $this->title = 'Login';
@@ -83,7 +84,12 @@ $this->params['breadcrumbs'][] = $this->title;
                               <div class="forgotPassword">
             <?= Html::a('Resend new verification email', ['site/resend-verification-email']) ?>
             <?= Html::a('Forgot password?', ['site/request-password-reset']) ?>
+            
                 </div>
+                <div class="terms-follow">
+                    <a href="<?=Url::to(['site/term'])?>">Terms & Conditions</a>
+                </div>
+                
             <?php ActiveForm::end(); ?>
             </div>
         </div>

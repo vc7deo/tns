@@ -113,6 +113,11 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
+    
+    public function actionTerm()
+    {
+        return $this->render('term');
+    }
 
     /**
      * Displays contact page.

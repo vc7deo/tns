@@ -408,3 +408,34 @@ $users = ArrayHelper::index($results, 'user');
 </main>
 </div>
 </div>
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+        
+            <div class="modal-body">
+              <div class="modalPhone">
+                  <img src="<?=$directoryAsset?>/images/call.png" />
+              <?php if(Yii::$app->params['user.premium']==0){ ?>
+                  <p>
+                  Upgrade Your Profile
+                  To View Phone Number
+                  </p>
+                  <p>Call : <?= Yii::$app->params['custom.upgrade-ph']; ?></p>
+              <?php }else{ ?>
+                  <p>
+                    <span>Thanks You for Being our Customer !!!</span>
+                    <div>We sincerely appreciate your interest and hop you to contact <element><?= $model->first_name ?></element> on <element><?= $model->phone ?></element></div>
+                    <p>Best Wishes for Your Future</p>
+                 </p>
+              <?php } ?>
+
+              
+              
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
