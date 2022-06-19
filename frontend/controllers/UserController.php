@@ -69,6 +69,20 @@ class UserController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+    public function actionDeactivate()
+    {
+        $token= Yii::$app->user->identity->token;
+        if (($user = User::findOne(['token' => $token])) !== null) {
+            $user->status = 9;
+            if($user->save()){
+                Yii::$app->user->logout();
+                return $this->goHome();  
+            }
+            return $this->redirect(['/home/index']);
+        }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
+    }
     protected function findModel($token)
     {
         if (($model = User::findOne(['token' => $token])) !== null) {
