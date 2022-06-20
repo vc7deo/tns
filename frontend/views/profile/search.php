@@ -74,14 +74,16 @@ ListView::widget([
     ],
     'layout' => "{items}\n{pager}",
     'itemView' => function ($model, $key, $index, $widget) use($users) {
-        if(isset($model->profile)){
+        if(isset($model->profile) && $model->profile->status == 1){
           return $this->render('_search',['model' => $model,'users' => $users]);  
         }
     },
 ]);
 ?>
 <?php else:?>
+<?php if(!empty($model->term)): ?>
 <p>No results found</p>
+<?php endif;?>
 <?php endif;?>
 
 </div>

@@ -23,14 +23,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="address">
-                                <?= Yii::$app->params['custom.addressline1']; ?>, <?= Yii::$app->params['custom.addressline2']; ?>,
-                                Pin: <?= Yii::$app->params['custom.pincode']; ?>
+                                <?= !empty(Yii::$app->params['custom.addressline1']) ? Yii::$app->params['custom.addressline1'] : ""; ?>, <?= !empty(Yii::$app->params['custom.addressline2']) ? Yii::$app->params['custom.addressline2'] : ""; ?>,
+                                Pin: <?= !empty(Yii::$app->params['custom.pincode']) ? Yii::$app->params['custom.pincode'] : ""; ?>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="phone">
-                                <span><?= Yii::$app->params['custom.login-ph1']; ?>,</span>
-                                <span><?= Yii::$app->params['custom.login-ph2']; ?></span>
+                                <span><?= !empty(Yii::$app->params['custom.login-ph1']) ? Yii::$app->params['custom.login-ph1'] : ""; ?>,</span>
+                                <span><?= !empty(Yii::$app->params['custom.login-ph2']) ? Yii::$app->params['custom.login-ph2'] : ""; ?></span>
                             </div>
                         </div>
                     </div>

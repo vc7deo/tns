@@ -43,7 +43,7 @@ ListView::widget([
     'itemOptions'  => ['class' => "col-lg-4 col-sm-6"],
     'layout' => "{items}\n{pager}",
     'itemView' => function ($model, $key, $index, $widget) {
-        if(isset($model->profile)){
+        if(isset($model->profile) && $model->profile->status == 1){
           return $this->render('_match',['model' => $model]);  
         }
     },

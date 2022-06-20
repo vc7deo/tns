@@ -10,7 +10,7 @@
                   Contact TNS Matrimony 
                   To Upgrade Your Profile
               </p>
-              <p><?= Yii::$app->params['custom.upgrade-ph']; ?></p>
+              <p><?= !empty(Yii::$app->params['custom.upgrade-ph']) ? Yii::$app->params['custom.upgrade-ph'] : ""; ?></p>
               </div>
             </div>
             <div class="modal-footer">

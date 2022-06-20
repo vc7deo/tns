@@ -30,5 +30,8 @@ Upgrade Your Profile
 <a class="nav-link <?=($action == 'interest-receive') ? 'active' : '';?>" href="<?=Url::to(['profile/interest-receive'])?>"><img src="<?=$directoryAsset?>/images/receive.png" alt=""/> Receive Interest</a>
 </li>
 <li class="nav-item">
+<a class="nav-link" href="<?=Url::to(['user/deactivate'])?>" data-method="post" ><img src="<?=$directoryAsset?>/images/logout.png" alt=""  /> Deactivate</a>
+</li>
+<li class="nav-item">
 <a class="nav-link" href="<?=Url::to(['site/logout'])?>" data-method="post" ><img src="<?=$directoryAsset?>/images/logout.png" alt=""  /> Logout</a>
 </li>
