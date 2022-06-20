@@ -23,6 +23,9 @@ $users = ArrayHelper::index($results, 'user');
 <div class="page-wrapper">
 <main class="main account">
 <div class="page-content mt-4 mb-10 pb-6">
+
+
+
 <div class="container">
 <div class="tab tab-vertical row">
 <div class="col-lg-12 col-md-12">
@@ -30,6 +33,8 @@ $users = ArrayHelper::index($results, 'user');
 <div class="uploadImgProfile">
 <div class="editUserPic">
 <img src="<?=  $model->avatar ?>" />
+
+
 </div>
 <div class="aboutMe">
 <h3><?= $model->fullname ?></h3>
