@@ -1289,6 +1289,18 @@ li.nav-item a.deactivate {
     display: flex;
 }
 
+.lightFont label {
+    font-weight: 300;
+}
+
+.hardFont label {
+    font-weight: 500;
+}
+.terms-follow{
+    text-align:right;
+}
+
+
 @media (max-width: 991px){
 
     .uploadImgProfile .aboutMe{
@@ -1298,6 +1310,9 @@ li.nav-item a.deactivate {
 }
 
 @media (max-width: 768px){
+    .detailSeprate h3 {
+    font-size: 18px;
+}
     .uploadImgProfile {
     display: block !important;
     float: left;
