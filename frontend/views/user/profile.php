@@ -242,10 +242,10 @@ $users = ArrayHelper::index($results, 'user');
 <div class="col-xs-12 col-lg-5">
 <label>Occupation Detail</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<!--<div class="col-xs-12 col-lg-7">
 <label><?= $model->profile->occupation_details ?></label>
 </div>
-</div>
+</div>-->
 <div class="row arrageFiled">
 <div class="col-xs-12 col-lg-5">
 <label>Annual Income</label>

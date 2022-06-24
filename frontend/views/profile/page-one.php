@@ -37,7 +37,7 @@ if(!$model->isNewRecord){
             <?= $form->field($model, 'height')->textInput() ?>
 			</div>
 			<div class="col-xs-6 col-lg-6">
-            <?= $form->field($model, 'height_unit')->dropDownList(['Feet' => 'Feet','Centimeter' => 'Centimeter'])->label("&nbsp") ?>
+            <?= $form->field($model, 'height_unit')->dropDownList(['Ft' => 'Feet','Cm' => 'Centimeter'])->label("&nbsp") ?>
             </div>
           </div>
           <div class="row arrageFiled">
@@ -251,9 +251,9 @@ if(!$model->isNewRecord){
            </div>
           </div>
           <div class="row arrageFiled">
-   <div class="col-xs-12 col-lg-12">
+   <!--<div class="col-xs-12 col-lg-12">
             <?= $form->field($model, 'occupation_details')->textInput() ?>
-			</div>
+			</div>-->
           </div>
 
           <div class="row arrageFiled">

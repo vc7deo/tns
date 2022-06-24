@@ -145,14 +145,14 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist')
 <label><?= $user->profile->education ?></label>
 </div>
 </div>
-<div class="row arrageFiled">
+<!--<div class="row arrageFiled">
 <div class="col-xs-12 col-lg-5">
 <label>Education Detail</label>
 </div>
 <div class="col-xs-12 col-lg-7">
 <label><?= $user->profile->education_details ?></label>
 </div>
-</div>
+</div>-->
 <div class="row arrageFiled">
 <div class="col-xs-12 col-lg-5">
 <label>Employed in</label>
@@ -169,14 +169,14 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist')
 <label><?= $user->profile->occupation ?></label>
 </div>
 </div>
-<div class="row arrageFiled">
+<!--<div class="row arrageFiled">
 <div class="col-xs-12 col-lg-5">
 <label>Occupation Detail</label>
 </div>
 <div class="col-xs-12 col-lg-7">
 <label><?= $user->profile->occupation_details ?></label>
 </div>
-</div>
+</div>-->
 <div class="row arrageFiled">
 <div class="col-xs-12 col-lg-5">
 <label>Annual Income</label>
