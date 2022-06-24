@@ -1143,3 +1143,55 @@ display:none;
 }
 }
 
+
+
+/* Slider */
+.sliderPopups {
+    max-width: 200px;
+    float: left;
+    width: 100%;
+    display: block;
+}
+
+.sliderPopups .item-slick.slick-slide.slick-current.slick-active {
+  outline: none !important;
+}
+
+.sliderPopups .slider-for {
+  margin-bottom: 5px;
+}
+.sliderPopups .slider-for img {
+  width: 100%;
+  min-height: 100%;
+}
+
+.sliderPopups .slider-nav {
+  margin: auto;
+}
+
+.sliderPopups .slider-nav .item-slick {
+  max-width: 85px;
+  margin-right: 15px;
+  outline: none !important;
+  cursor: pointer;
+}
+.sliderPopups .slider-nav .item-slick img {
+  max-width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.sliderPopups .slick-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 50;
+  margin-top: -12px;
+}
+
+.sliderPopups .slick-prev {
+  left: 0;
+}
+
+.sliderPopups .slick-next {
+  right: 0;
+}

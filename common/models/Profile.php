@@ -74,7 +74,7 @@ class Profile extends \yii\db\ActiveRecord
     {
         return [
             [['height', 'weight','marital_status', 'body_type', 'physical_status', 'eating_habits', 'drinking_habits', 'smoking_habits','dob'], 'required', 'on' => 'page-one'],
-            [['family_type', 'family_status', 'brothers', 'sisters', 'country', 'state', 'city', 'citizenship','about_me'], 'required', 'on' => 'page-two'],
+            [['family_type', 'family_status', 'country', 'state', 'city', 'citizenship','about_me'], 'required', 'on' => 'page-two'],
             [['sudha_jathakam', 'brothers', 'sisters', 'country', 'user_id', 'page_no', 'status', 'edit_status'], 'integer'],
             [['about_me'], 'string'],
             [['user_id'], 'required'],
@@ -83,7 +83,7 @@ class Profile extends \yii\db\ActiveRecord
             [['education', 'education_details', 'employed_in', 'occupation', 'occupation_details', 'income', 'religion', 'caste', 'sub_caste', 'other', 'star', 'rasi', 'gothram', 'fathers_occupation', 'mothers_occupation', 'origin', 'state', 'city', 'citizenship', 'hobbies', 'interests', 'photo1', 'photo2', 'photo3'], 'string', 'max' => 255],
             [['languages_known','dob'], 'safe'],
             [['file1','file2'],'safe'],
-            [['file1','file2'], 'image','minWidth' => 200, 'minHeight' => 200, 'maxWidth' => 500, 'maxHeight' => 500, 'extensions' => 'png, jpg, jpeg'],
+            [['file1','file2'], 'image','minWidth' => 200, 'minHeight' => 200, 'maxWidth' => 800, 'maxHeight' => 800, 'extensions' => 'png, jpg, jpeg'],
         ];
     }
 

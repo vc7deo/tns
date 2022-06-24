@@ -214,6 +214,7 @@ class ProfileController extends Controller
         $photo = $model->photo;
         if ($model->load(Yii::$app->request->post())) {
             $model->photo = str_replace(Yii::getAlias('@site/uploads/profile/'),'',$model->photo);
+             
             if($model->profile($user)){
                  if(file_exists(Yii::getAlias('@frontend/web/uploads/profile/').$photo) && !empty($photo)){
                      unlink(Yii::getAlias('@frontend/web/uploads/profile/').$photo);

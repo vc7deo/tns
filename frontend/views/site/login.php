@@ -87,7 +87,7 @@ $this->params['breadcrumbs'][] = $this->title;
             
                 </div>
                 <div class="terms-follow">
-                    <a href="<?=Url::to(['site/term'])?>">Terms & Conditions</a>
+                    <a href="<?=Url::to(['site/term'])?>" target="_new">Terms & Conditions</a>
                 </div>
                 
             <?php ActiveForm::end(); ?>

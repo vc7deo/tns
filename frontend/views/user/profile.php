@@ -32,7 +32,40 @@ $users = ArrayHelper::index($results, 'user');
 <div class="detailSeprate">
 <div class="uploadImgProfile">
 <div class="editUserPic">
-<img src="<?=  $model->avatar ?>" />
+
+
+<!--   -->
+
+    <div class="sliderPopups">
+
+  <div id="aniimated-thumbnials" class="slider-for">
+
+
+          <a href="http://farm9.staticflickr.com/8242/8558295633_f34a55c1c6_b.jpg">
+            <img src="http://farm9.staticflickr.com/8242/8558295633_f34a55c1c6_b.jpg" />
+          </a>
+          <a href="http://farm9.staticflickr.com/8382/8558295631_0f56c1284f_b.jpg">
+            <img src="http://farm9.staticflickr.com/8382/8558295631_0f56c1284f_b.jpg" />
+          </a>
+   
+
+      </div>
+      <div class="slider-nav">
+        <div class="item-slick">
+          <img src="http://farm9.staticflickr.com/8242/8558295633_f34a55c1c6_b.jpg" alt="Alt">
+        </div>
+        <div class="item-slick">
+          <img src="http://farm9.staticflickr.com/8382/8558295631_0f56c1284f_b.jpg" alt="Alt">
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+<!--   -->
 
 
 </div>

@@ -19,7 +19,7 @@ class AvatarForm extends Model
     {
         return [
             [['image1','image2'],'safe'],
-            [['image1','image2'], 'image','minWidth' => 200, 'minHeight' => 200, 'maxWidth' => 500, 'maxHeight' => 500, 'extensions' => 'png, jpg, jpeg'],
+            [['image1','image2'], 'image','minWidth' => 200, 'minHeight' => 200, 'maxWidth' => 800, 'maxHeight' => 800, 'extensions' => 'png, jpg, jpeg'],
         ];
     }
 

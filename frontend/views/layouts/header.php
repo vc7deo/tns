@@ -39,7 +39,7 @@ $cid = Yii::$app->controller->id;
 <a class="dropdown-item" href="<?=Url::to(['profile/edit'])?>">Edit Profile</a>
 <a class="dropdown-item" href="<?=Url::to(['site/logout'])?>" data-method="post">Logout</a>
 <div class="dropdown-divider"></div>
-<a class="dropdown-item" href="<?=Url::to(['site/term'])?>">Our Terms</a>
+<a class="dropdown-item" href="<?=Url::to(['site/term'])?>" target="_new">Our Terms</a>
 <a class="dropdown-item" href="<?=Url::to(['site/contact'])?>">Help</a>
 </div>
 </li>
