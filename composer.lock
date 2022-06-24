@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "302b8e02d555e5f4c3b8e6b0c4d12d68",
+    "content-hash": "2be84e0d6136ae12ac66336d62128b87",
     "packages": [
         {
             "name": "2amigos/yii2-file-input-widget",
@@ -7741,5 +7741,5 @@
         "php": ">=5.6.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.0.0"
 }

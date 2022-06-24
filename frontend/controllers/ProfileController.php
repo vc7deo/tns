@@ -17,7 +17,7 @@ use yii\web\UploadedFile;
 use common\helpers\Cms;
 use yii\bootstrap4\ActiveForm;
 use frontend\models\SearchForm;
-
+use yii\imagine\Image;
 /**
  * ProfileController implements the CRUD actions for Profile model.
  */
@@ -100,6 +100,12 @@ class ProfileController extends Controller
                 if(file_exists(Yii::getAlias('@frontend/web/uploads/profile/').$photo1) && !empty($photo1)){
                      unlink(Yii::getAlias('@frontend/web/uploads/profile/').$photo1);
                  }
+                                 $watermarkImage = '@webroot/dist/images/wt.png';
+$image = '@webroot/uploads/profile/'.$model->photo1;
+// Store the Image object in a variable
+$newImage = Image::watermark($image, $watermarkImage,[140,246]);
+// Call the save function to write the file to the disk.
+$newImage->save(Yii::getAlias('@webroot/uploads/profile/'.$model->photo1));
 
             }
             if ($avatar->image2 != NULL){
