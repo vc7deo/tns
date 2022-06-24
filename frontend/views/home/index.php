@@ -11,13 +11,13 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist')
 <div class="page-content mt-4 mb-10 pb-6">
 <div class="container">
 <div class="tab tab-vertical row">
-<ul class="nav nav-tabs mb-4 col-lg-3 col-md-4 left-navs">
+<ul class="nav nav-tabs mb-4 col-lg-3 col-md-4 left-navs col-xs-6 col-12 contentFull">
 <div class="profileSide">
 <div class="upgradient">
 <div class="profileSmallImg">
 <img src="<?=$user->avatar?>" alt="user">
 </div>
-<h5>Hai</h5>
+<h5>Hello !</h5>
 <h3><?= $user->fullname ?></h3>
 <h4><?= $user->username ?></h4>
 </div>
@@ -32,7 +32,7 @@ Upgrade Your Profile
 ) ?>
 
 </ul>
-<div class="col-lg-9 col-md-8">
+<div class="col-lg-9 col-md-8 col-xs-6 col-12 contentFull">
 <div class="homeSection">
 <?php if ($dataProvider->totalCount > 0): ?>
 <?=
@@ -40,7 +40,7 @@ ListView::widget([
     'dataProvider' => $dataProvider,
     'emptyText' => '',
     'options' => ['class' => 'row'],
-    'itemOptions'  => ['class' => "col-lg-4 col-sm-6"],
+    'itemOptions'  => ['class' => "col-lg-4 col-sm-6 width-full"],
     'layout' => "{items}\n{pager}",
     'itemView' => function ($model, $key, $index, $widget) {
         if(isset($model->profile) && $model->profile->status == 1){

@@ -187,9 +187,12 @@ button {
 }
 
 .profileSmallImg img {
-  width: 150px;
-  border: 4px solid #fff;
-  border-radius: 50%;
+    width: 70%;
+    height: 75%;
+    object-fit: cover;
+    margin: auto;
+    border: 4px solid #fff;
+    border-radius: 50%;
 }
 
 .profileSide {
@@ -217,7 +220,11 @@ button {
 }
 
 .profileSmallImg {
-  margin-top: 10px;
+     display: grid;
+    position: relative;
+    grid-auto-rows: 200px;
+    object-fit: cover;
+    margin-top: 0px;
 }
 
 .profileSection {
@@ -274,13 +281,16 @@ button {
   position: relative;
   display: block;
   /* line-height: 1em; */
-  padding-left: 25px; /* text-align: right; */
+  padding-left: 32px; /* text-align: right; */
 }
 
 .login-ft .phone span:before {
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 5 Free';
   content: "\f095";
+  color:#21346e;
   position: absolute;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
   display: inline-block;
   font-size: 20px;
   left: 0;
@@ -295,9 +305,43 @@ button {
   padding-left: 22px;
   display: block;
 }
+
+.logo-term {
+    text-align: center;
+    max-width: 200px;
+    margin: 0 auto 20px auto;
+}
+
+.termsCondition {
+    margin: 40px 0;
+}
+
+.termsCondition h4 {
+    font-size: 30px;
+    text-decoration: underline;
+    margin-bottom: 15px;
+}
+
+.termsCondition ul {
+    padding: 0;
+    list-style: nu;
+}
+
+.termsCondition li {
+    line-height: 1.7em;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.terms-sign {
+    text-align:right;
+    margin-top: 10px;
+}
+
 .login-ft .address:before {
-  font-family: FontAwesome;
-  content: "\f041";
+  font-family: 'Font Awesome 5 Free';
+  content: "\f3c5";
+   color:#21346e;
   position: absolute;
   display: inline-block;
   left: 0;
@@ -391,6 +435,9 @@ li.nav-item.dropdown {
 .detailSeprate {
   border-radius: 8px;
   margin-bottom: 20px;
+  display:block;
+  float:left;
+  width:100%;
   padding: 30px;
   -webkit-box-shadow: -1px 0px 5px 0px rgba(204, 204, 204, 1);
   -moz-box-shadow: -1px 0px 5px 0px rgba(204, 204, 204, 1);
@@ -663,7 +710,7 @@ ul.navbar-nav.mr-auto.topnavHead li a {
 }
 
 .uploadImgProfile .aboutMe {
-  margin-left: 52px;
+  margin-left: 35px;
   margin-top: auto;
   width: 100%;
 }
@@ -1178,6 +1225,7 @@ display:none;
 .sliderPopups .slider-nav .item-slick img {
   max-width: 100%;
   background-size: cover;
+  border: 2px solid #ddd;
   background-position: center;
 }
 
@@ -1194,4 +1242,89 @@ display:none;
 
 .sliderPopups .slick-next {
   right: 0;
+}
+
+.lg-toolbar.lg-group a#lg-download {
+    display: none !important;
+}
+
+.lg-toolbar.lg-group span.lg-autoplay-button.lg-icon {
+    display: none !important;
+}
+
+
+.lg-toolbar.lg-group span.lg-fullscreen.lg-icon {
+    display: none !important;
+}
+
+.lg-toolbar.lg-group span#lg-zoom-in {
+    display: none !important;
+}
+
+.lg-toolbar.lg-group span#lg-zoom-out {
+    display: none !important;
+}
+
+.lg-toolbar.lg-group span#lg-actual-size {
+    display: none !important;
+}
+
+.lg-toolbar.lg-group span#lg-share {
+    display: none !important;
+}
+
+span.lg-toogle-thumb.lg-icon {
+    display: none !important;
+}
+
+#aniimated-thumbnials img {
+    border: 3px solid #c6c5c5;
+}
+
+li.nav-item a.deactivate {
+    background: #ec7272 !important;
+}
+
+.wrap-image{
+    display: flex;
+}
+
+@media (max-width: 991px){
+
+    .uploadImgProfile .aboutMe{
+        margin-left:20px;
+    }
+
+}
+
+@media (max-width: 768px){
+    .uploadImgProfile {
+    display: block !important;
+    float: left;
+    width: 100%;
+}
+    .editUserPic {
+    display: block;
+    float: left;
+    width: 100%;
+}
+.uploadImgProfile .aboutMe {
+    margin-left: 0;
+    display: block;
+    float: left;
+    width: 100%;
+}
+}
+
+@media (max-width: 525px){
+    .uploadImgProfile .aboutMe{
+        margin-top: 15px;
+    }
+    .aboutMe h6 {
+    font-size: 14px;
+    position: relative;
+    top: auto;
+    font-weight: 600;
+    right: auto;
+}
 }

@@ -32,6 +32,7 @@ if(!empty(Yii::$app->user->identity->profile->photo2)){
 </div>
 <div class="tab-content col-md-9" id="myTabContent">
 <div class="tab-pane fade show active" id="edit" role="tabpanel" aria-labelledby="edit-tab">
+<div class="wrap-image">
 <div class="detailSeprate">
 <h3>Photos</h3>
 <div class="uploadImg">
@@ -58,6 +59,7 @@ if(!empty(Yii::$app->user->identity->profile->photo2)){
 
     <?php ActiveForm::end(); ?>
 <?php endif; ?>
+</div>
 </div>
 </div>
 <?php 

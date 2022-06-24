@@ -20,7 +20,7 @@ $send 		= Interest::find()
 <div class="profileSmallImg">
 <img src="<?=$user->avatar?>" alt="user">
 </div>
-<h5>Hai</h5>
+<h5>Hello !</h5>
 <h3><?= $user->fullname ?></h3>
 <h4><?= $user->username ?></h4>
 </div>
@@ -39,9 +39,10 @@ Upgrade Your Profile
 <li class="nav-item">
 <a class="nav-link <?=($action == 'interest-receive') ? 'active' : '';?>" href="<?=Url::to(['profile/interest-receive'])?>"><img src="<?=$directoryAsset?>/images/receive.png" alt=""/> Receive Interest (<?= $receives; ?>)</a>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="<?=Url::to(['user/deactivate'])?>" data-confirm="Do You Want To Deactivate Your Account?" data-method="post" ><img src="<?=$directoryAsset?>/images/logout.png" alt=""  /> Deactivate</a>
-</li>
+
 <li class="nav-item">
 <a class="nav-link" href="<?=Url::to(['site/logout'])?>" data-method="post" ><img src="<?=$directoryAsset?>/images/logout.png" alt=""  /> Logout</a>
+</li>
+<li class="nav-item">
+<a class="nav-link deactivate" href="<?=Url::to(['user/deactivate'])?>" data-confirm="Do You Want To Deactivate Your Account?" data-method="post" ><img src="<?=$directoryAsset?>/images/disable.png" alt=""  /> Deactivate</a>
 </li>
