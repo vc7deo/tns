@@ -1,9 +1,13 @@
 <?php
 use common\helpers\Cms;
 use yii\bootstrap4\Html;
+use yii\helpers\ArrayHelper;
+
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist');
-//         echo "<pre>";
+       // echo "<pre>";
 // print_r($model->send);exit();
+$receives = Yii::$app->user->identity->receives;
+$users = ArrayHelper::getColumn($receives, 'user_to');
 ?>
 
 <div class="boxSizing">
@@ -25,7 +29,9 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist')
 <div class="sentIntrestLogin">
 <span>Received an interest On:</span> <?= Cms::timeago($model->receive->sent_at); ?>
 </div>
-
+<?php if(!in_array($model->id, $users)):?>
+<?= Html::a('<i class="fa fa-heart" aria-hidden="true"></i> Send interest', ['/profile/send','token' => $model->token],['class' => 'interestBtns']) ?>
+<?php endif; ?>
 <div class="profileView">
 
 <?= Html::a('View Profile', ['/user/profile','token' => $model->token],['class' => 'btn btn-success']) ?>

@@ -1,23 +1,26 @@
 <?php
 use yii\bootstrap4\Html;
 use common\helpers\Cms;
+use common\models\Interest;
 use yii\helpers\ArrayHelper;
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist');
 
 $my_id= Yii::$app->user->identity->id;
-$query1 = (new \yii\db\Query())
-    ->select("user_to AS user, user_by, sent_at")
-    ->from('interest')
-    ->where(['user_from' => $my_id]);
+// $query1 = (new \yii\db\Query())
+//     ->select("user_to AS user, user_by, sent_at")
+//     ->from('interest')
+//     ->where(['user_from' => $my_id]);
 
-$query2 = (new \yii\db\Query())
-    ->select("user_from AS user, user_by, sent_at")
-    ->from('interest')
-    ->where(['user_to' => $my_id]);
+// $query2 = (new \yii\db\Query())
+//     ->select("user_from AS user, user_by, sent_at")
+//     ->from('interest')
+//     ->where(['user_to' => $my_id]);
 
-$query3 = $query1->union($query2);
-$results = $query3->createCommand()->queryAll();
-$users = ArrayHelper::index($results, 'user');
+// $query3 = $query1->union($query2);
+// $results = $query3->createCommand()->queryAll();
+// $users = ArrayHelper::index($results, 'user');
+$send = Interest::find()->where(['user_from' => $my_id,'user_to'=> $model->id])->one();
+$receive = Interest::find()->where(['user_to' => $my_id,'user_from'=> $model->id])->one();
 ?>
 <div class="container">
 <div class="page-wrapper">
@@ -89,16 +92,15 @@ $users = ArrayHelper::index($results, 'user');
 <li>Studied <span><?= $model->profile->education ?></span></li>
 <li><?= $model->profile->occupation ?></li>
 </ul>
-<?php if(array_key_exists($model->id, $users)):?>
-<?php if($users[$model->id]['user'] == $users[$model->id]['user_by']):?>
-<span>Received an interest On:</span> <?= Cms::timeago($users[$model->id]['sent_at']); ?>
-<?php else:?>
-<span>Sent an interest On:</span> <?= Cms::timeago($users[$model->id]['sent_at']); ?>
-<?php endif;?>
-<?php else:?>
+<?php if(empty($send->user_to)):?>
 <?= Html::a('<i class="fa fa-heart" aria-hidden="true"></i> Send interest', ['/user/send','token' => $model->token],['class' => 'interestBtns']) ?>
+<?php else:?>
+  <span>Sent an interest On:</span> <?= Cms::timeago($send->sent_at); ?>
 <?php endif;?>
-
+<br/>
+<?php if(!empty($receive->sent_at)):?>
+  <span>Received an interest On:</span> <?= Cms::timeago($receive->sent_at); ?>
+<?php endif;?>
 </div>
 </div>
 </div>
@@ -459,7 +461,7 @@ $users = ArrayHelper::index($results, 'user');
                   Upgrade Your Profile
                   To View Phone Number
                   </p>
-                  <p>Call : <?= Yii::$app->params['custom.upgrade-ph']; ?></p>
+                  <p>Call : <?= !empty(Yii::$app->params['custom.upgrade-ph']) ? Yii::$app->params['custom.upgrade-ph'] : ""; ?></p>
               <?php }else{ ?>
                   <p>
                     <span>Thanks You for Being our Customer !!!</span>
