@@ -1,7 +1,10 @@
 <?php
 use common\helpers\Cms;
 use yii\bootstrap4\Html;
+use yii\helpers\ArrayHelper;
+
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist');
+
 use yii\helpers\ArrayHelper;
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist');
 
@@ -19,6 +22,12 @@ $query2 = (new \yii\db\Query())
 $query3 = $query1->union($query2);
 $results = $query3->createCommand()->queryAll();
 $users = ArrayHelper::index($results, 'user');
+
+       // echo "<pre>";
+// print_r($model->send);exit();
+$receives = Yii::$app->user->identity->receives;
+$users = ArrayHelper::getColumn($receives, 'user_to');
+
 ?>
 
 <div class="boxSizing">
@@ -49,6 +58,11 @@ $users = ArrayHelper::index($results, 'user');
 <?php endif;?>
 <?php endif;?>
 </div>
+
+<?php if(!in_array($model->id, $users)):?>
+<?= Html::a('<i class="fa fa-heart" aria-hidden="true"></i> Send interest', ['/profile/send','token' => $model->token],['class' => 'interestBtns']) ?>
+<?php endif; ?>
+
 <div class="profileView">
 
 <?= Html::a('View Profile', ['/user/profile','token' => $model->token],['class' => 'btn btn-success']) ?>

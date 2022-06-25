@@ -11,15 +11,16 @@ use common\models\User;
 class AvatarForm extends Model
 {
     public $image1;
-    public $image2;
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
+
             [['image1','image2'],'safe'],
             [['image1','image2'], 'image','minWidth' => 200, 'minHeight' => 200, 'maxWidth' => 1024, 'maxHeight' => 1024, 'extensions' => 'png, jpg, jpeg,JPG'],
+
         ];
     }
 
