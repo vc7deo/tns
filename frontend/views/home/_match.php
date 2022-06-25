@@ -7,8 +7,8 @@ use yii\bootstrap4\Html;
 </div>
 <div class="homeuserDetails">
 <ul>
-<li><?=$model->fullname?></li>
-<li><?= ($model->age != '') ? $model->age. ' ,' : ''?> <?=$model->profile->height.' '.$model->profile->height_unit?>, <?= $model->profile->education ?></li>
+<li><?=$model->first_name?></li>
+<li><?= ($model->age != '') ? $model->age. ' ,' : ''?> <?=$model->profile->height.' '.$model->profile->height_unit?></li>
 <li>Ernakulam</li>
 <li>
 <?= Html::a('View Profile', ['/user/profile','token' => $model->token],['class' => '']) ?>

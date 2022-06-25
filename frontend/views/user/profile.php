@@ -113,11 +113,11 @@ $receive = Interest::find()->where(['user_to' => $my_id,'user_from'=> $model->id
 <?php if(empty($send->user_to)):?>
 <?= Html::a('<i class="fa fa-heart" aria-hidden="true"></i> Send interest', ['/user/send','token' => $model->token],['class' => 'interestBtns']) ?>
 <?php else:?>
-  <span>Sent an interest On:</span> <?= Cms::timeago($send->sent_at); ?>
+  <div class="int-rec"><span>Sent an interest On:</span> <?= Cms::timeago($send->sent_at); ?></div>
 <?php endif;?>
-<br/>
+
 <?php if(!empty($receive->sent_at)):?>
-  <span>Received an interest On:</span> <?= Cms::timeago($receive->sent_at); ?>
+  <div class="int-sent"><span>Received an interest On:</span> <?= Cms::timeago($receive->sent_at); ?></div>
 <?php endif;?>
 </div>
 </div>
@@ -126,98 +126,98 @@ $receive = Interest::find()->where(['user_to' => $my_id,'user_from'=> $model->id
 <h3><img src="<?=$directoryAsset?>/images/layers.png" alt=""> Basic Details</h3>
 <?php if(isset($model->profile)): ?>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>First Name</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->first_name ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Last Name</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->last_name ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Age</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?=($model->age != '') ? $model->age. ' ': '' ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Height</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><span><?= $model->profile->height ?></span> <?= $model->profile->height_unit ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Weight</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><span><?= $model->profile->weight ?></span> <?= $model->profile->weight_unit ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Marital Status</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->marital_status ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Body Type</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->body_type ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Physical Status</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->physical_status ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Language Known</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->languages_known ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Eating Habits</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->eating_habits ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Drinking Habits</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->drinking_habits ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Smoking Habits</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->smoking_habits ?></label>
 </div>
 </div>
@@ -227,51 +227,51 @@ $receive = Interest::find()->where(['user_to' => $my_id,'user_from'=> $model->id
 <h3><img src="<?=$directoryAsset?>/images/briefcase.png"> Professional Details</h3>
 <?php if(isset($model->profile)): ?>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Education</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->education ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Education Detail</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->education_details ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Employed in</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->employed_in ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Occupation</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->occupation ?></label>
 </div>
 </div>
 <!--
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Occupation Detail</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->occupation_details ?></label>
 </div>
 </div>-->
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Annual Income</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->income ?></label>
 </div>
 </div>
@@ -281,58 +281,58 @@ $receive = Interest::find()->where(['user_to' => $my_id,'user_from'=> $model->id
 <h3><img src="<?=$directoryAsset?>/images/pray.png"> Religious Information</h3>
 <?php if(isset($model->profile)): ?>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Religion</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->religion ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Caste</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->caste ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Subcaste</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->subCaste ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Star</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->star ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Raasi</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->rasi ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Suddha Jadhagam</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= !empty($model->profile->sudha_jathakam) ? 'Yes' : 'No' ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Gothram</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->gothram ?></label>
 </div>
 </div>
@@ -342,98 +342,98 @@ $receive = Interest::find()->where(['user_to' => $my_id,'user_from'=> $model->id
 <h3><img src="<?=$directoryAsset?>/images/family.png"> Family Details</h3>
 <?php if(isset($model->profile)): ?>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Family Type</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->family_type ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Family Status</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->family_status ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Father's Occupation</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->fathers_occupation ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Mother's Occupation</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->mothers_occupation ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Family Origin</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->origin ?></label>
 </div>
 </div>
 <?php /*<div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Contact Number</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label class="phoneShow">xxxxxxxxxx</label>
 </div>
 </div> */ ?>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>No. of Brothers</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->brothers ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>No. of Sister's</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->sisters ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>City</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->city ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>State</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->state ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Country</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->cntry->name ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Citizenship</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->citizenship ?></label>
 </div>
 </div>
@@ -443,18 +443,18 @@ $receive = Interest::find()->where(['user_to' => $my_id,'user_from'=> $model->id
 <h3><img src="<?=$directoryAsset?>/images/hobby.png"> Hobbies &amp; Interests</h3>
 <?php if(isset($model->profile)): ?>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Hobbies</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->hobbies ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
-<div class="col-xs-12 col-lg-5">
+<div class="col-xs-12 col-lg-5 hardFont">
 <label>Interests</label>
 </div>
-<div class="col-xs-12 col-lg-7">
+<div class="col-xs-12 col-lg-7 lightFont">
 <label><?= $model->profile->interests ?></label>
 </div>
 </div>

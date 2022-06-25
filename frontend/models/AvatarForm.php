@@ -11,6 +11,7 @@ use common\models\User;
 class AvatarForm extends Model
 {
     public $image1;
+    public $image2;
     /**
      * @inheritdoc
      */

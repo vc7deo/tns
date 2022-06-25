@@ -203,7 +203,7 @@ button {
 }
 
 .upgradient h5 {
-  margin-top: 10px;
+  margin-top: 0px;
   font-size: 14px;
   font-weight: 400;
 }
@@ -563,9 +563,9 @@ li.nav-item.dropdown {
 }
 .lastLogin {
   position: absolute;
-  right: 7%;
+  right: 20px;
   font-weight: 400;
-  bottom: 19%;
+  top: 35px;
   border-radius: 4px;
   padding: 5px;
   background: #ddd;
@@ -576,15 +576,61 @@ li.nav-item.dropdown {
   font-size: 13px;
 }
 .sentIntrestLogin {
-  color: #47484a;
+  color: #fff;
+  padding: 5px;
   font-weight: 400;
+  text-align: center;
   width: 43%;
+  background: #2abd4c;
+  border-radius: 3px;
+  font-size: 12px;
   margin-top: 12px;
   font-weight: 400;
 }
 .sentIntrestLogin span {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
+}
+
+.int-rec, .int-sent {
+    background: #21346d !important;
+    padding: 5px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 3px;
+    border-radius: 3px;
+    font-size: 13px;
+    position: relative;
+}
+
+.int-rec span:before, .int-sent span:before {
+    content: "\f004";
+    color: #fff;
+    font-family: 'Font Awesome 5 Free';
+    /* position: absolute; */
+    display: inline-block;
+    /* left: 0; */
+    /* padding-right: 3px; */
+    margin-right: 10px;
+    /* top: -3px; */
+    /* font-size: 20px; */
+    /* vertical-align: middle; */
+    font-weight: 900;
+}
+
+.profileView{
+    text-align: center;
+}
+
+.profileView a {
+  border: 0;
+  text-decoration: none;
+  background: #21346e;
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 16px;
 }
 
 .profileView button {
@@ -685,10 +731,18 @@ ul.navbar-nav.mr-auto.topnavHead li a {
 }
 .homeuserDetails li a {
   text-decoration: none;
-  color: #000;
-  background: #ddd;
+  color: #fff;
+  background: #21346e;
   padding: 5px 10px;
   border-radius: 5px;
+}
+
+.homeuserDetails li a:hover{
+    opacity: .7;
+}
+.profileView a.btn.btn-success:hover {
+    background: #21346e;
+    opacity: .7;
 }
 
 .homeuserDetails ul li:last-child {
@@ -1217,16 +1271,21 @@ display:none;
 }
 
 .sliderPopups .slider-nav .item-slick {
-  max-width: 85px;
   margin-right: 15px;
   outline: none !important;
   cursor: pointer;
+        display: grid;
+    position: relative;
+    grid-auto-rows: 75px;
+    object-fit: cover;
+  /*background-position: center;*/
 }
-.sliderPopups .slider-nav .item-slick img {
-  max-width: 100%;
-  background-size: cover;
-  border: 2px solid #ddd;
-  background-position: center;
+
+.sliderPopups .slider-nav .item-slick img{
+        width: 100%;
+         border: 2px solid #ddd;
+    height: 100%;
+    object-fit: cover;
 }
 
 .sliderPopups .slick-arrow {
@@ -1277,7 +1336,17 @@ span.lg-toogle-thumb.lg-icon {
     display: none !important;
 }
 
-#aniimated-thumbnials img {
+.sliderPopups .slick-track a.slick-slide {
+    display: grid;
+    position: relative;
+    grid-auto-rows: 150px;
+    object-fit: cover;
+}
+
+.sliderPopups #aniimated-thumbnials img {
+      width: 100%;
+    height: 100%;
+    object-fit: cover;
     border: 3px solid #c6c5c5;
 }
 
@@ -1300,6 +1369,19 @@ li.nav-item a.deactivate {
     text-align:right;
 }
 
+.navbar-light .navbar-toggler {
+    border-color: #21346e !important;
+    padding: 6px 10px 2px 10px;
+    background: #21346e !important;
+}
+.navbar-toggler-icon {
+    width: 1em important;
+    height: 1em important;
+    background: 52% / 100% 100% no-repeat important;
+}
+.navbar-light .navbar-toggler-icon {
+    background-image: url(../images/menu.png) !important;
+}
 
 @media (max-width: 991px){
 
@@ -1342,4 +1424,16 @@ li.nav-item a.deactivate {
     font-weight: 600;
     right: auto;
 }
+}
+
+.forgotPassword a {
+    text-decoration: none;
+    color: #21346e;
+    font-weight: 400;
+}
+
+.terms-follow a {
+    font-weight: 400;
+    text-decoration: none;
+    color: #21346e;
 }

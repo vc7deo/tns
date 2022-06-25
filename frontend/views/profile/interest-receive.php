@@ -12,7 +12,7 @@ use yii\widgets\ListView;
 <div class="page-content mt-4 mb-10 pb-6">
 <div class="container">
 <div class="tab tab-vertical row">
-<ul class="nav nav-tabs mb-4 col-lg-3 col-md-4 left-navs">
+<ul class="nav nav-tabs mb-4 col-lg-3 col-md-4 left-navs col-xs-6 col-12 contentFull">
 <?= $this->render(
     '@frontend/views/common/menu',
     ['user' => $user]
@@ -21,7 +21,7 @@ use yii\widgets\ListView;
     '@frontend/views/common/match'
 ) ?>
 </ul>
-<div class="col-md-9">
+<div class="col-lg-9 col-md-8 col-xs-6 col-12 contentFull">
 <?php if ($dataProvider->totalCount > 0): ?>
 <?=
 ListView::widget([

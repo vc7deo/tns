@@ -11,10 +11,10 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist')
 <div class="userDetails">
 <ul>
 <li><?=$model->fullname?></li>
-<li><?= ($model->age != '') ? $model->age. ' Yrs ,' : ''?> <?=$model->profile->height.' '.$model->profile->height_unit?>, <?= $model->profile->state ?></li>
+<li><?= ($model->age != '') ? $model->age. ' ,' : ''?> <?=$model->profile->height.' '.$model->profile->height_unit?>, <?= $model->profile->state ?></li>
 <li><?= $model->profile->education ?>, <?= $model->profile->occupation ?>, <?= $model->profile->employed_in ?></li>
 <li><?= $model->profile->cntry->name ?></li>
-<li><button><img src="<?=$directoryAsset?>/images/callWhite.png" altr="" /> Call</button></li>
+<!--<li><button><img src="<?=$directoryAsset?>/images/callWhite.png" altr="" /> Call</button></li>-->
 </ul>
 </div>
 </div>
@@ -30,14 +30,15 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist')
 <?php endif;?>
 </div>
 
-<div class="profileView">
 
-<?= Html::a('View Profile', ['/user/profile','token' => $model->token],['class' => 'btn btn-success']) ?>
-
-</div>
 </div>
 <div class="lastLogin">
 <span>Last Login:</span>
 <?= Cms::timeago($model->active); ?>
+</div>
+<div class="profileView">
+
+<?= Html::a('View Profile', ['/user/profile','token' => $model->token],['class' => 'btn btn-success']) ?>
+
 </div>
 </div>

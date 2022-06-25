@@ -15,8 +15,8 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist')
 </div>
 <div class="homeuserDetails">
 <ul>
-<li><?=$model->fullname?></li>
-<li><?= ($model->age != '') ? $model->age. ' Yrs ,' : ''?><?= $model->profile->education ?></li>
+<li><?=$model->first_name?></li>
+<li><?= ($model->age != '') ? $model->age. ' ,' : ''?></li>
 <li><?= $model->profile->city ?></li>
 </ul>
 </div>
