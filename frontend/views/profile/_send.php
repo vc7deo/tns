@@ -1,9 +1,14 @@
 <?php
 use common\helpers\Cms;
 use yii\bootstrap4\Html;
+use common\models\Interest;
+use yii\helpers\ArrayHelper;
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist');
 //         echo "<pre>";
 // print_r($model->send);exit();
+$my_id= Yii::$app->user->identity->id;
+$receives = Yii::$app->user->identity->receives;
+$send = Interest::find()->where(['user_from' => $my_id,'user_to'=> $model->id])->one();
 ?>
 
 <div class="boxSizing">
@@ -23,7 +28,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist')
 </div>
 <div class="ft-detail">
 <div class="sentIntrestLogin">
-<span>Sent an interest On:</span> <?= Cms::timeago($model->send->sent_at); ?>
+<span>Sent an interest On:</span> <?= Cms::timeago($send->sent_at); ?>
 </div>
 
 <div class="profileView">

@@ -23,6 +23,18 @@ $my_id= Yii::$app->user->identity->id;
 $send = Interest::find()->where(['user_from' => $my_id,'user_to'=> $model->id])->one();
 $receive = Interest::find()->where(['user_to' => $my_id,'user_from'=> $model->id])->one();
 
+
+  if(!empty($model->profile->photo1)){
+      $img1= Yii::getAlias('@site/uploads/profile/') . $model->profile->photo1;
+  }else{
+      $img1= Yii::getAlias('@site/dist/images/user.jpg');
+  }
+
+  if(!empty($model->profile->photo2)){
+      $img2= Yii::getAlias('@site/uploads/profile/') . $model->profile->photo2;
+  }else{
+      $img2= Yii::getAlias('@site/dist/images/user.jpg');
+  }
 ?>
 <div class="container">
 <div class="page-wrapper">
@@ -134,7 +146,7 @@ $receive = Interest::find()->where(['user_to' => $my_id,'user_from'=> $model->id
 <label>Age</label>
 </div>
 <div class="col-xs-12 col-lg-7">
-<label><?=($model->age != '') ? $model->age. ' Yrs ': '' ?></label>
+<label><?=($model->age != '') ? $model->age. ' ': '' ?></label>
 </div>
 </div>
 <div class="row arrageFiled">
