@@ -25,7 +25,7 @@ $users = ArrayHelper::getColumn($receives, 'user_to');
 <div class="userDetails">
 <ul>
 <li><?=$model->fullname?></li>
-<li><?= ($model->age != '') ? $model->age. ' Yrs ,' : ''?> <?=$model->profile->height.' '.$model->profile->height_unit?>, <?= $model->profile->state ?></li>
+<li><?= ($model->age != '') ? $model->age. ' ,' : ''?> <?=$model->profile->height.' '.$model->profile->height_unit?>, <?= $model->profile->state ?></li>
 <li><?= $model->profile->education ?>, <?= $model->profile->occupation ?>, <?= $model->profile->employed_in ?></li>
 <li><?= $model->profile->cntry->name ?></li>
 <li><button><img src="<?=$directoryAsset?>/images/callWhite.png" altr="" /> Call</button></li>
