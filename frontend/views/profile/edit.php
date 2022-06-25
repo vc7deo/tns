@@ -32,14 +32,14 @@ if(!empty(Yii::$app->user->identity->profile->photo2)){
 </div>
 <div class="tab-content col-md-9" id="myTabContent">
 <div class="tab-pane fade show active" id="edit" role="tabpanel" aria-labelledby="edit-tab">
-<div class="wrap-image">
+
 <div class="detailSeprate">
 <h3>Photos</h3>
 <div class="uploadImg">
 <?php if(isset($user->profile)): ?>
 <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-
+    <div class="wrap-image">
     <?= $form->field($avatar, 'image1')->widget(\dosamigos\fileinput\FileInput::className(), [
     'options' => ['accept' => 'image/*'],
     'thumbnail' => $photo1,
@@ -53,13 +53,14 @@ if(!empty(Yii::$app->user->identity->profile->photo2)){
     'style' => \dosamigos\fileinput\FileInput::STYLE_CUSTOM,
     'customView' => '@frontend/views/profile/imageField.php',
 ])->hint('')->label(false)?>
+    </div>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
 <?php endif; ?>
-</div>
+
 </div>
 </div>
 <?php 

@@ -188,11 +188,11 @@ if(!$model->isNewRecord){
 'Others' => 'Others'],['prompt' => 'Select']) ->label(false);  ?>
 			</div>
           </div>
-          <!--<div class="row arrageFiled">
+          <div class="row arrageFiled">
    <div class="col-xs-12 col-lg-12">
             <?= $form->field($model, 'education_details')->textInput() ?>
 			</div>
-          </div>-->
+          </div>
           <div class="row arrageFiled">
             <div class="col-xs-12 col-lg-12">
 <?= $form->field($model, 'employed_in')->dropDownList(['Government/PSU' => 'Government/PSU', 

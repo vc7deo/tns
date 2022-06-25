@@ -18,6 +18,21 @@ $query2 = (new \yii\db\Query())
 $query3 = $query1->union($query2);
 $results = $query3->createCommand()->queryAll();
 $users = ArrayHelper::index($results, 'user');
+
+
+  if(!empty($model->profile->photo1)){
+      $img1= Yii::getAlias('@site/uploads/profile/') . $model->profile->photo1;
+  }else{
+      $img1= Yii::getAlias('@site/dist/images/user.jpg');
+  }
+
+  if(!empty($model->profile->photo2)){
+      $img2= Yii::getAlias('@site/uploads/profile/') . $model->profile->photo2;
+  }else{
+      $img2= Yii::getAlias('@site/dist/images/user.jpg');
+  }
+
+
 ?>
 <div class="container">
 <div class="page-wrapper">
@@ -41,22 +56,26 @@ $users = ArrayHelper::index($results, 'user');
   <div id="aniimated-thumbnials" class="slider-for">
 
 
-          <a href="http://farm9.staticflickr.com/8242/8558295633_f34a55c1c6_b.jpg">
-            <img src="http://farm9.staticflickr.com/8242/8558295633_f34a55c1c6_b.jpg" />
+          <a href="<?=$img1?>">
+            <img src="<?=$img1?>" />
           </a>
-          <a href="http://farm9.staticflickr.com/8382/8558295631_0f56c1284f_b.jpg">
-            <img src="http://farm9.staticflickr.com/8382/8558295631_0f56c1284f_b.jpg" />
+          <?php if(!empty($model->profile->photo2)){ ?>
+          <a href="<?=$img2?>">
+            <img src="<?=$img2?>" />
           </a>
+          <?php } ?>
    
 
       </div>
       <div class="slider-nav">
         <div class="item-slick">
-          <img src="http://farm9.staticflickr.com/8242/8558295633_f34a55c1c6_b.jpg" alt="Alt">
+          <img src="<?=$img1?>" alt="Alt">
         </div>
+        <?php if(!empty($model->profile->photo2)){ ?>
         <div class="item-slick">
-          <img src="http://farm9.staticflickr.com/8382/8558295631_0f56c1284f_b.jpg" alt="Alt">
+          <img src="<?=$img2?>" alt="Alt">
         </div>
+        <?php } ?>
 
       </div>
 
@@ -76,7 +95,7 @@ $users = ArrayHelper::index($results, 'user');
 <div><span>Last Login:</span><?= Cms::timeago($model->active); ?></div>
 </h6>
 <ul>
-<li><?= ($model->age != '') ? $model->age. ' Yrs , ' : ''?><?=$model->profile->height.' '.$model->profile->height_unit?></li>
+<li><?= ($model->age != '') ? $model->age. ' , ' : ''?><?=$model->profile->height.' '.$model->profile->height_unit?></li>
 <!-- <li>Mother Tongue is <span>Marathi</span></li> -->
 </ul>
 <button type="button" class="otherprofileCall" data-toggle="modal" data-target="#exampleModal1">

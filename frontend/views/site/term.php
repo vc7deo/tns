@@ -7,6 +7,8 @@
 use yii\bootstrap4\Html;
 use yii\bootstrap4\ActiveForm;
 use yii\captcha\Captcha;
+use yii\helpers\Url;
+$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist');
 
 $this->title = 'Terms & Conditions';
 $this->params['breadcrumbs'][] = $this->title;
@@ -17,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="page-wrapper">
                 
                 <div class="termsCondition">
-                    <div class="logo-term"><img src="" alt="" /></div>
+                    <div class="logo-term"><img src="<?=$directoryAsset?>/images/logo.png" width="100px" alt="" /></div>
                     <h4>നിയമാവലി</h4>
                     <ul>
                         <li>

@@ -237,7 +237,7 @@ class User extends ActiveRecord implements IdentityInterface
             $dateOfBirth = date('Y-m-d',$this->profile->dob);
             $today = date("Y-m-d");
             $diff = date_diff(date_create($dateOfBirth), date_create($today));
-            return $diff->format('%y').".".$diff->format('%m');
+            return $diff->format('%y')." Yrs ".$diff->format('%m')." Months";
         }
 
         return '';

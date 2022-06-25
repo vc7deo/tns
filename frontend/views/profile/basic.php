@@ -226,14 +226,14 @@ $form =  ActiveForm::begin();
 'Others' => 'Others'],['prompt' => 'Select']) ->label(false);  ?>
 </div>
 </div>
-<!--<div class="row arrageFiled">
+<div class="row arrageFiled">
 <div class="col-xs-12 col-lg-5">
 <label><?=$model->getAttributeLabel('education_details')?></label>
 </div>
 <div class="col-xs-12 col-lg-7">
 <?= $form->field($model, 'education_details')->textInput()->label(false);  ?>
 </div>
-</div>-->
+</div>
 
 <div class="row arrageFiled">
 <div class="col-xs-12 col-lg-5">
@@ -548,11 +548,12 @@ $form =  ActiveForm::begin();
 <?= $form->field($model, 'gothram')->textInput()->label(false);  ?>
 </div>
 </div>
-</div>
 <div class="saveButtons">
 <?= Html::submitButton('Save', ['class' => 'savebtns']) ?>
 <?= Html::a('Family Details', ['/profile/family'],['class' => 'cancelbtns']) ?>
 </div>
+</div>
+
 <?php ActiveForm::end(); ?>
 
 </div>

@@ -83,7 +83,7 @@ class Profile extends \yii\db\ActiveRecord
             [['education', 'education_details', 'employed_in', 'occupation', 'occupation_details', 'income', 'religion', 'caste', 'sub_caste', 'other', 'star', 'rasi', 'gothram', 'fathers_occupation', 'mothers_occupation', 'origin', 'state', 'city', 'citizenship', 'hobbies', 'interests', 'photo1', 'photo2', 'photo3'], 'string', 'max' => 255],
             [['languages_known','dob'], 'safe'],
             [['file1','file2'],'safe'],
-            [['file1','file2'], 'image','minWidth' => 200, 'minHeight' => 200, 'maxWidth' => 800, 'maxHeight' => 800, 'extensions' => 'png, jpg, jpeg'],
+            [['file1','file2'], 'image','minWidth' => 200, 'minHeight' => 200, 'maxWidth' => 1024, 'maxHeight' => 1024, 'extensions' => 'png, jpg, jpeg'],
         ];
     }
 

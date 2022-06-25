@@ -87,6 +87,7 @@ class ProfileController extends Controller
         if ($avatar->load(Yii::$app->request->post())) {
             $avatar->image1 = UploadedFile::getInstance($avatar,'image1');
             $avatar->image2 = UploadedFile::getInstance($avatar,'image2');
+
             if($avatar->image1 != NULL){
             $model->photo1 = Cms::clean($avatar->image1->baseName).'-'.time().'.'.$avatar->image1->extension;
             }
@@ -103,7 +104,7 @@ class ProfileController extends Controller
                                  $watermarkImage = '@webroot/dist/images/wt.png';
 $image = '@webroot/uploads/profile/'.$model->photo1;
 // Store the Image object in a variable
-$newImage = Image::watermark($image, $watermarkImage,[140,246]);
+$newImage = Image::watermark($image, $watermarkImage,[10,10]);
 // Call the save function to write the file to the disk.
 $newImage->save(Yii::getAlias('@webroot/uploads/profile/'.$model->photo1));
 
@@ -114,6 +115,14 @@ $newImage->save(Yii::getAlias('@webroot/uploads/profile/'.$model->photo1));
                      unlink(Yii::getAlias('@frontend/web/uploads/profile/').$photo2);
                  }
             }
+
+
+            $watermarkImage1 = '@webroot/dist/images/wt.png';
+$image1 = '@webroot/uploads/profile/'.$model->photo2;
+// Store the Image object in a variable
+$newImage1 = Image::watermark($image1, $watermarkImage1,[10,10]);
+// Call the save function to write the file to the disk.
+$newImage1->save(Yii::getAlias('@webroot/uploads/profile/'.$model->photo2));
          
          return $this->refresh();
         }

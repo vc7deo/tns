@@ -156,11 +156,11 @@ $form =  ActiveForm::begin();
 </div>
 </div>
 
-
-</div>
 <div class="saveButtons">
 <?= Html::submitButton('Save', ['class' => 'savebtns']) ?>
 </div>
+</div>
+
 <?php ActiveForm::end(); ?>
 
 </div>
