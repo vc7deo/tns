@@ -7,19 +7,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist')
 
 
 $my_id= Yii::$app->user->identity->id;
-$query1 = (new \yii\db\Query())
-    ->select("user_to AS user, user_by, sent_at")
-    ->from('interest')
-    ->where(['user_from' => $my_id]);
 
-$query2 = (new \yii\db\Query())
-    ->select("user_from AS user, user_by, sent_at")
-    ->from('interest')
-    ->where(['user_to' => $my_id]);
-
-$query3 = $query1->union($query2);
-$results = $query3->createCommand()->queryAll();
-$users = ArrayHelper::index($results, 'user');
 
 //         echo "<pre>";
        // echo "<pre>";
