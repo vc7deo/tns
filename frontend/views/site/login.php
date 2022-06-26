@@ -7,6 +7,7 @@
 use yii\bootstrap4\Html;
 use yii\bootstrap4\ActiveForm;
 use yii\helpers\Url;
+use kartik\widgets\PasswordInput;
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist');
 
 $this->title = 'Login';

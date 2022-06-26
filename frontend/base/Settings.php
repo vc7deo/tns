@@ -44,6 +44,8 @@ class Settings implements BootstrapInterface {
                 if(isset($user->profile->page_no) && $user->profile->page_no == 1){
                     Yii::$app->params['user.profile'] = 'PROFILE_PAGE_TWO';
                 }elseif(isset($user->profile->page_no) && $user->profile->page_no == 2 && $user->profile->status == 0){
+                    Yii::$app->params['user.profile'] = 'PROFILE_PAGE_THREE';
+                }elseif(isset($user->profile->page_no) && $user->profile->page_no == 3 && $user->profile->status == 0){
                     Yii::$app->params['user.profile'] = 'PROFILE_NOT_APPROVED';
                 }elseif(isset($user->profile->page_no) && $user->profile->page_no == 0 && $user->profile->status == 0){
                     Yii::$app->params['user.profile'] = 'PROFILE_PAGE_ONE';

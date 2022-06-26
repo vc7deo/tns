@@ -100,7 +100,7 @@ $this->params['breadcrumbs'][] = $this->title;
       </div>
 
       <div class="saveButtonsReg">
-<?= Html::submitButton('Save', ['class' => 'savebtns', 'name' => 'login-button']) ?>
+<?= Html::submitButton('Continue', ['class' => 'savebtns', 'name' => 'login-button']) ?>
 
       </div>
       <?php ActiveForm::end(); ?>

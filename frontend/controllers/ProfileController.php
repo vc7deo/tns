@@ -63,6 +63,8 @@ class ProfileController extends Controller
             return $this->redirect(['/profile/page-one', 'token' => $token]);
         }elseif(Yii::$app->params['user.profile'] == 'PROFILE_PAGE_TWO'){
             return $this->redirect(['/profile/page-two', 'token' => $token]);
+        }elseif(Yii::$app->params['user.profile'] == 'PROFILE_PAGE_THREE'){
+            return $this->redirect(['/profile/page-three', 'token' => $token]);
         }elseif(Yii::$app->params['user.profile'] == 'PROFILE_NOT_APPROVED'){
             return $this->redirect(['/profile/not-approved', 'token' => $token]);
         }else{
@@ -334,6 +336,54 @@ $newImage1->save(Yii::getAlias('@webroot/uploads/profile/'.$model->photo2));*/
             'model' => $model,
         ]);
     }
+    public function actionPageThree($token)
+    {   
+        if(Yii::$app->params['user.profile'] != 'PROFILE_PAGE_THREE'){
+            return $this->redirect('index');
+        }
+        $this->layout = 'profile';
+        $uid = Yii::$app->user->identity->id;
+        $model = $this->findModel($uid);
+        $model->scenario = 'page-three';
+        $avatar = new AvatarForm();
+
+        if ($avatar->load(Yii::$app->request->post())) {
+            $model->page_no = 3;
+            $photo1 = $model->photo1;
+            $photo2 = $model->photo2;
+        
+            $avatar->image1 = UploadedFile::getInstance($avatar,'image1');
+            $avatar->image2 = UploadedFile::getInstance($avatar,'image2');
+            if($avatar->image1 != NULL){
+            $model->photo1 = Cms::clean($avatar->image1->baseName).'-'.time().'.'.$avatar->image1->extension;
+            }
+            if($avatar->image2 != NULL){
+            $model->photo2 = Cms::clean($avatar->image2->baseName).'-'.time().'.'.$avatar->image2->extension;
+            }
+             $model->save(false);
+             //print_r($avatar->getErrors());exit();
+            if ($avatar->image1 != NULL){
+                $avatar->image1->saveAs(Yii::getAlias('@frontend/web/uploads/profile/').$model->photo1);
+                if(file_exists(Yii::getAlias('@frontend/web/uploads/profile/').$photo1) && !empty($photo1)){
+                     unlink(Yii::getAlias('@frontend/web/uploads/profile/').$photo1);
+                 }
+
+            }
+            if ($avatar->image2 != NULL){
+                $avatar->image2->saveAs(Yii::getAlias('@frontend/web/uploads/profile/').$model->photo2);
+                if(file_exists(Yii::getAlias('@frontend/web/uploads/profile/').$photo2) && !empty($photo2)){
+                     unlink(Yii::getAlias('@frontend/web/uploads/profile/').$photo2);
+                 }
+            }
+
+
+            return $this->redirect('index');
+        }
+        return $this->render('page-three', [
+            'model' => $model,
+            'avatar' => $avatar
+        ]);
+    }
     public function actionNotApproved($token)
     {
         if(Yii::$app->params['user.profile'] != 'PROFILE_NOT_APPROVED'){
@@ -353,6 +403,14 @@ $newImage1->save(Yii::getAlias('@webroot/uploads/profile/'.$model->photo2));*/
         }
      
     }  
+    public function actionSkipphoto() {
+        $uid = Yii::$app->user->identity->id;
+        $model = $this->findModel($uid);                
+        $model->page_no = 3;
+        $model->save(false);
+            return $this->redirect('index');
+     
+    } 
     public function actionSend($token)
     {
         $my_id= Yii::$app->user->identity->id;

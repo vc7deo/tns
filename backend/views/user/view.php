@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
+$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist');
 /* @var $this yii\web\View */
 /* @var $model common\models\User */
 
@@ -47,6 +47,18 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model->profile,
         'attributes' => [
+            [
+                'attribute'=>'photo1',
+                'value'=>$model->profile->photo1 != null ? '<img width="200" src="'.Yii::getAlias('@site/uploads/profile/').$model->profile->photo1.'">
+                ' : "",
+                'format' => 'raw',
+            ],
+            [
+                'attribute'=>'photo2',
+                'value'=>$model->profile->photo2 != null ? '<img width="200" src="'.Yii::getAlias('@site/uploads/profile/').$model->profile->photo2.'">
+                ' : "",
+                'format' => 'raw',
+            ],
             'height',
             'weight',
             'dob:date',

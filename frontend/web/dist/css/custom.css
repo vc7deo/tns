@@ -1453,3 +1453,27 @@ li.nav-item a.deactivate {
     justify-content: space-between;
     display: flex;
 }
+
+button.savefinal {
+    background: #21346e;
+    border: 0;
+     border: 1px solid #21346e;
+    padding: 9px 35px;
+}
+
+button.savefinal:hover{
+    background:#fff
+    color:#21346e;
+}
+a.skipbtns {
+    display:inline-block;
+    color: #21346e;
+    border: 1px solid #21346e;
+    padding: 10px 31px;
+    margin-left: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+a.skipbtns:hover{
+    background: #21346e;
+}
