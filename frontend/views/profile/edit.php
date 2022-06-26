@@ -1,9 +1,9 @@
 <?php
 use yii\bootstrap4\Html;
 use yii\helpers\Url;
+use yii\bootstrap4\ActiveForm;
 
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist');
-use yii\bootstrap4\ActiveForm;
 $photo1 = $photo2 = \yii\helpers\Html::img(Yii::getAlias('@site/dist/images/user.jpg'));
 if(!empty(Yii::$app->user->identity->profile->photo1)){
     $photo1 = \yii\helpers\Html::img(Yii::getAlias('@site/uploads/profile/').Yii::$app->user->identity->profile->photo1);
@@ -38,22 +38,46 @@ if(!empty(Yii::$app->user->identity->profile->photo2)){
 <div class="uploadImg">
 <?php if(isset($user->profile)): ?>
 <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
-
-     <div class="wrap-image">
-    <?= $form->field($avatar, 'image1')->widget(\dosamigos\fileinput\FileInput::className(), [
+    <div class="wrap-image">
+     <div style="margin: 10px;">
+     <?= $form->field($avatar, 'image1')->widget(\dosamigos\fileinput\FileInput::className(), [
     'options' => ['accept' => 'image/*'],
     'thumbnail' => $photo1,
     'style' => \dosamigos\fileinput\FileInput::STYLE_CUSTOM,
     'customView' => '@frontend/views/profile/imageField.php',
 ])->hint('')->label(false)?>
-   <div style="visibility: hidden">
+   </div>
+   <div style="margin: 10px;">
     <?= $form->field($avatar, 'image2')->widget(\dosamigos\fileinput\FileInput::className(), [
     'options' => ['accept' => 'image/*'],
     'thumbnail' => $photo2,
     'style' => \dosamigos\fileinput\FileInput::STYLE_CUSTOM,
     'customView' => '@frontend/views/profile/imageField.php',
 ])->hint('') ->label(false)?>
-   </div>
+</div>
+</div>
+
+     <div class="wrap-image">
+        <?= $form->field($avatar, 'image1')->fileInput([])->label(false) ?>
+        <?= $form->field($avatar, 'image2')->fileInput([])->label(false) ?>
+     
+<?php /*
+     <?= $form->field($avatar, 'image1')->widget(\dosamigos\fileinput\FileInput::className(), [
+    'options' => ['accept' => 'image/*'],
+    'thumbnail' => $photo1,
+    'style' => \dosamigos\fileinput\FileInput::STYLE_CUSTOM,
+    'customView' => '@frontend/views/profile/imageField.php',
+])->hint('')->label(false)?>
+   
+    <?= $form->field($avatar, 'image2')->widget(\dosamigos\fileinput\FileInput::className(), [
+    'options' => ['accept' => 'image/*'],
+    'thumbnail' => $photo2,
+    'style' => \dosamigos\fileinput\FileInput::STYLE_CUSTOM,
+    'customView' => '@frontend/views/profile/imageField.php',
+])->hint('') ->label(false)?>
+
+*/ ?>
+   
 </div>
   
     <div class="form-group">

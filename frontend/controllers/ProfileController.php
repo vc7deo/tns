@@ -80,13 +80,18 @@ class ProfileController extends Controller
         $account = new ProfileForm($user->getAttributes(['first_name','last_name','phone','email']));
         $account->old_email = $account->email;
         $account->old_phone = $account->phone;
+       
         if ($account->load(Yii::$app->request->post()) && $account->profile($user)) {
             Yii::$app->session->setFlash('success', 'You have successfully updated your profile.');
         return $this->refresh();
         }
+
         if ($avatar->load(Yii::$app->request->post())) {
+             //echo "<pre>"; print_r(Yii::$app->request->post()); echo "</pre>"; exit;
             $avatar->image1 = UploadedFile::getInstance($avatar,'image1');
             $avatar->image2 = UploadedFile::getInstance($avatar,'image2');
+            //print_r($avatar->getErrors());exit();
+            //echo "<pre>"; print_r($avatar); exit;
 
             if($avatar->image1 != NULL){
             $model->photo1 = Cms::clean($avatar->image1->baseName).'-'.time().'.'.$avatar->image1->extension;

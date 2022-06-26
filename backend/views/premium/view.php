@@ -49,6 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'height',
             'weight',
+            'dob:date',
             'marital_status',
             'body_type',
             'physical_status',
