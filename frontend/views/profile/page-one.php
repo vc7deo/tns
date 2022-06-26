@@ -407,7 +407,8 @@ if(!$model->isNewRecord){
                                                      'Veluthedath Nair'     => 'Veluthedath Nair',
                                                      'Vilakithala Nair'     => 'Vilakithala Nair',
                                                      'Vellala Pillai'       => 'Vellala Pillai',
-                                                     'Chakkala Nair'        => 'Chakkala Nair'],
+                                                     'Chakkala Nair'        => 'Chakkala Nair',
+                                                     'Other'                => 'Other'],
                                                      ['prompt' => 'Select']) ?>
             </div>
         </div>

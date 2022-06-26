@@ -32,11 +32,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <span><?= Yii::$app->params['custom.secretary-ph']; ?></span>
                             </div>
                             <div class="mb-2">
-                                President: 
+                                Office1: 
                                 <span><?= Yii::$app->params['custom.president-ph']; ?></span>
                             </div>
                             <div class="mb-2">
-                                Office: 
+                                Office2: 
                                 <span><?= Yii::$app->params['custom.office-ph']; ?></span>
                             </div>
                         </div>

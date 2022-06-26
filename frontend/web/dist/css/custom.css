@@ -593,11 +593,14 @@ li.nav-item.dropdown {
 }
 
 .int-rec, .int-sent {
-    background: #21346d !important;
+    background: #ddd !important;
     padding: 5px;
     text-align: center;
-    color: #fff;
-    margin-bottom: 3px;
+    color: #21346d;
+    display:block;
+    float: left;
+    width: 100%;
+    margin-top: 5px;
     border-radius: 3px;
     font-size: 13px;
     position: relative;
@@ -605,16 +608,10 @@ li.nav-item.dropdown {
 
 .int-rec span:before, .int-sent span:before {
     content: "\f004";
-    color: #fff;
+    color: #21346d;
     font-family: 'Font Awesome 5 Free';
-    /* position: absolute; */
     display: inline-block;
-    /* left: 0; */
-    /* padding-right: 3px; */
     margin-right: 10px;
-    /* top: -3px; */
-    /* font-size: 20px; */
-    /* vertical-align: middle; */
     font-weight: 900;
 }
 
@@ -1157,11 +1154,11 @@ header .dropdown-divider {
 
 .error-not-found h6 {font-size: 25px;margin-top: 25px;}
 .backLoginBtn{
-	text-align: center;
-	margin-top: 15px;
+  text-align: center;
+  margin-top: 15px;
 }
 .backLoginBtn a{
-	    text-decoration: none;
+      text-decoration: none;
     font-weight: 600;
     color: #21346e;
     font-size: 16px;
@@ -1436,4 +1433,23 @@ li.nav-item a.deactivate {
     font-weight: 400;
     text-decoration: none;
     color: #21346e;
+}
+.profile-review {
+    box-shadow: 0px 4px 5px 0px #aaaaaabf;
+    -webkit-box-shadow: 0px 0px 8px 0px #aaaaaabf;
+    -moz-box-shadow: 0px -3px 9px 0px rgba(117, 112, 112, 0.75);
+    padding: 45px;
+    max-width: 500px;
+    border-radius: 10px;
+    color: #000;
+    font-size: 18px;
+    margin: auto;
+}
+.int-wrap{
+    display: block;
+}
+
+.int-getBack{
+    justify-content: space-between;
+    display: flex;
 }

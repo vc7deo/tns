@@ -32,7 +32,7 @@ $users = ArrayHelper::getColumn($receives, 'user_to');
 </ul>
 </div>
 </div>
-<div class="ft-detail">
+<div class="ft-detail int-getBack">
 
 <div class="sentIntrestLogin">
 <span>Received an interest On:</span> <?= Cms::timeago($model->receive->sent_at); ?>

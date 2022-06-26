@@ -115,7 +115,7 @@ class Profile extends \yii\db\ActiveRecord
             'religion' => 'Religion',
             'caste' => 'Caste',
             'sub_caste' => 'Sub Caste',
-            'other' => 'Other',
+            'other' => 'Other Sub Caste',
             'star' => 'Star',
             'rasi' => 'Rasi',
             'sudha_jathakam' => 'Sudha Jathakam',

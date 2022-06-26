@@ -110,6 +110,7 @@ $receive = Interest::find()->where(['user_to' => $my_id,'user_from'=> $model->id
 <li>Studied <span><?= $model->profile->education ?></span></li>
 <li><?= $model->profile->occupation ?></li>
 </ul>
+<div class="int-wrap">
 <?php if(empty($send->user_to)):?>
 <?= Html::a('<i class="fa fa-heart" aria-hidden="true"></i> Send interest', ['/user/send','token' => $model->token],['class' => 'interestBtns']) ?>
 <?php else:?>
@@ -119,6 +120,7 @@ $receive = Interest::find()->where(['user_to' => $my_id,'user_from'=> $model->id
 <?php if(!empty($receive->sent_at)):?>
   <div class="int-sent"><span>Received an interest On:</span> <?= Cms::timeago($receive->sent_at); ?></div>
 <?php endif;?>
+</div>
 </div>
 </div>
 </div>

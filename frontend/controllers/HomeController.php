@@ -56,8 +56,10 @@ class HomeController extends Controller
             'sort'=> ['defaultOrder' => ['created_at'=>SORT_DESC]]
         ]);
         $dataProvider->query
+            ->joinWith('profile', 'profile.user_id = user.id')
             ->where(['gender' => $gender])
-            ->andWhere(['status' => 10])->all();
+            ->andWhere(['profile.status' => 1])
+            ->andWhere(['user.status' => 10])->all();
         return $this->render('index', [
             'user' => $user,
             'dataProvider' => $dataProvider,

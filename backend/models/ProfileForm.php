@@ -42,8 +42,8 @@ class ProfileForm extends Model
                 return $('#profileform-package_id').val() > 1;
             }"
             ],
-            ['phone', 'match', 'pattern' => '/^([0-9+]+)$/'],
-            ['phone', 'match', 'pattern' => '/(?<!\()-|\+/','message' => 'Please enter phone number with country code'],
+            ['phone', 'match', 'pattern' => '/^([0-9]+)$/'],
+            ['phone', 'match', 'pattern' => '/(?<!\()-|/','message' => 'Please enter a valid phone number'],
             ['phone', 'string', 'min' => 6, 'max' => 15, 'tooShort' => '{attribute} should be at least 6 digits' , 'tooLong' => '{attribute} should be at most 15 digits' ],
             ['phone', 'unique',
             'targetClass' => '\common\models\User', 
