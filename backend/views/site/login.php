@@ -6,12 +6,14 @@
 
 use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
+use yii\helpers\Url;
 $model->rememberMe = 1;
+$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@backend/web/dist');
 $this->title = 'Login';
 ?>
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"></a>
+    <img src="<?=$directoryAsset?>/img/logo.png" width="100px" align="loginCenter">
   </div>
   <!-- /.login-logo -->
   <div class="card">

@@ -1477,3 +1477,18 @@ a.skipbtns {
 a.skipbtns:hover{
     background: #21346e;
 }
+
+@media (max-width: 991px){
+.ft-detail {
+  display: block !important;
+}
+}
+
+@media (max-width: 500px){
+.lastLogin {
+    top: 10px !important;
+}
+  .userDetails li{
+        line-height: 1.5em !important;
+  }
+}

@@ -223,6 +223,16 @@ $receive = Interest::find()->where(['user_to' => $my_id,'user_from'=> $model->id
 <label><?= $model->profile->smoking_habits ?></label>
 </div>
 </div>
+<div class="row arrageFiled">
+<div class="col-xs-12 col-lg-5 hardFont">
+<label>About <?= $model->first_name ?></label>
+</div>
+<div class="col-xs-12 col-lg-7 lightFont">
+<?php if(isset($user->profile)): ?>
+<label><?= $model->profile->about_me ?></label>
+<?php endif;?>
+</div>
+</div>
 <?php endif;?>
 </div>
 <div class="detailSeprate">

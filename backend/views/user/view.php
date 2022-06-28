@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 <h3>Profile</h3>
 <?php if(isset($model->profile)): ?>
-<?php if($model->profile->status == 0 && $model->profile->page_no == 2): ?>
+<?php if($model->profile->status == 0 && ($model->profile->page_no == 2 || $model->profile->page_no == 3)): ?>
     <p>
         <?= Html::a('Approve', ['approve', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
     </p>

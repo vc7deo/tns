@@ -21,7 +21,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist')
 </ul>
 <div class="col-lg-9 col-md-8 col-xs-6 col-12 contentFull">
 <div class="detailSeprate">
-<h3>About Me</h3>
+<h3>About <?= $user->first_name ?></h3>
 <div class="uploadImgProfile">
 <div class="editUserPic">
 <img src="<?=$user->avatar?>" alt="user">

@@ -52,6 +52,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filterInputOptions' => ['class' => 'form-control', 'prompt' => 'All'],
 
             ],
+            [
+                 'attribute' => 'profile.status',
+                 'label' => 'Approved',
+                 'format' => 'boolean'
+            ],
             // [
             //     'attribute' => 'is_premium',
             //     'label' => 'Premium',

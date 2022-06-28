@@ -19,15 +19,20 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist')
 </div>
 </div>
 <div class="ft-detail">
+    
+<?php if(array_key_exists($model->id, $users)):?>    
 <div class="sentIntrestLogin">
-<?php if(array_key_exists($model->id, $users)):?>
+
 <?php if($users[$model->id]['user'] == $users[$model->id]['user_by']):?>
 <span>Received an interest On:</span> <?= Cms::timeago($users[$model->id]['sent_at']); ?>
 <?php else:?>
 <span>Sent an interest On:</span> <?= Cms::timeago($users[$model->id]['sent_at']); ?>
 <?php endif;?>
+
+</div>
 <?php else:?>
 <?php endif;?>
+
 </div>
 
 
