@@ -13,7 +13,11 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="flex-home">
-        <div class="home-banner" style="background: url(<?=$directoryAsset?>/images/banner.svg)">
+        <?php if(!empty(Yii::$app->params['image.image'])): ?>
+        <div class="home-banner" style="background: url(<?=Yii::getAlias('@site/uploads/images/').Yii::$app->params['image.image']?>">
+    <?php else:?>
+         <div class="home-banner" style="background: url(<?=$directoryAsset?>/images/banner.svg)">
+    <?php endif; ?>
                 
             <div class="container">
             <div class="loginAddress">
