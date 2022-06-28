@@ -10,6 +10,8 @@ use yii\helpers\Url;
 use yii\web\UploadedFile;
 use yii\helpers\ArrayHelper;
 use yii\db\Query;
+use yii\web\NotFoundHttpException;
+
 /**
  * SettingsController implements the CRUD actions for Setting model.
  */
@@ -42,22 +44,22 @@ class SettingsController extends Controller
 
 //         return $this->render('index', ['settings' => $settings]);
 //     }
-    public function actionForm()
+    public function actionImage()
     {
-        $model = $this->findModel(16);
+        $model = $this->findModel(35);
             $model->file = UploadedFile::getInstance($model,'file');
             if ($model->file != NULL){
-                if(file_exists(Yii::getAlias('@path').'/form/'.$model->value) && !empty($model->value)){
-                    unlink(Yii::getAlias('@path').'/form/'.$model->value);
+                if(file_exists(Yii::getAlias('@frontend/web/uploads/images/').$model->value) && !empty($model->value)){
+                    unlink(Yii::getAlias('@frontend/web/uploads/images/').$model->value);
                 };
                 $model->value = $this->clean($model->file->baseName).time().'.'.$model->file->extension;
                 $model->save(false);
-                $model->file->saveAs(Yii::getAlias('@path').'/form/'.$model->value);
+                $model->file->saveAs(Yii::getAlias('@frontend/web/uploads/images/').$model->value);
                 Yii::$app->session->setFlash('success', 'successfully uploaded');
 
                 return $this->refresh();
             }
-            return $this->render('form', [
+            return $this->render('image', [
                 'model' => $model,
             ]);
  
@@ -90,51 +92,51 @@ class SettingsController extends Controller
 
         return $this->render('smtp', ['settings' => $settings]);
     }
-    public function actionImage()
-    {
-        $flag = true;
-        $settings = Setting::find()->where(['module' => 'img'])->all();
-        if (Yii::$app->request->isPost){
+    // public function actionImage()
+    // {
+    //     $flag = true;
+    //     $settings = Setting::find()->where(['module' => 'img'])->all();
+    //     if (Yii::$app->request->isPost){
 
-            $oldIDs = ArrayHelper::map($settings, 'id', 'id');
-            $settings = Model::createMultiple(Setting::classname(),$settings);
-            Model::loadMultiple($settings, Yii::$app->request->post());
-            $deletedIDs = array_diff($oldIDs, array_filter(ArrayHelper::map($settings, 'id', 'id')));
-            $valid = Model::validateMultiple($settings);
-            if ($valid) {
-                $transaction = \Yii::$app->db->beginTransaction();
-                try {
-                  if (!empty($deletedIDs)) {
-                            Setting::deleteAll(['id' => $deletedIDs]);
-                        }
-                    foreach ($settings as $setting) {
-                            $setting->module = 'img';
-                            $setting->name = $this->clean($setting->title);
-                            if (! ($flag = $setting->save(false))) {
-                                $transaction->rollBack();
-                                break;
-                            }
-                        }
+    //         $oldIDs = ArrayHelper::map($settings, 'id', 'id');
+    //         $settings = Model::createMultiple(Setting::classname(),$settings);
+    //         Model::loadMultiple($settings, Yii::$app->request->post());
+    //         $deletedIDs = array_diff($oldIDs, array_filter(ArrayHelper::map($settings, 'id', 'id')));
+    //         $valid = Model::validateMultiple($settings);
+    //         if ($valid) {
+    //             $transaction = \Yii::$app->db->beginTransaction();
+    //             try {
+    //               if (!empty($deletedIDs)) {
+    //                         Setting::deleteAll(['id' => $deletedIDs]);
+    //                     }
+    //                 foreach ($settings as $setting) {
+    //                         $setting->module = 'img';
+    //                         $setting->name = $this->clean($setting->title);
+    //                         if (! ($flag = $setting->save(false))) {
+    //                             $transaction->rollBack();
+    //                             break;
+    //                         }
+    //                     }
                     
 
-                    if ($flag) {
-                        $transaction->commit();
-        $subQuery1 = (new Query())->select('MIN(id)')->from('setting')->groupBy(['module','name']);
-        $subQuery = (new Query())->from(['u' => $subQuery1]);
-        $query = (new Query())->createCommand()->delete('setting', ['NOT IN','id', $subQuery]);
-        $query->execute();
-        //DELETE FROM `settings` WHERE `id` NOT IN (SELECT * FROM (SELECT MIN(id) FROM `setting` GROUP BY `module`, `name`) `u`)
-                        return $this->redirect(['image']);
-                    }
-                } catch (Exception $e) {
-                    $transaction->rollBack();
-                }
-            }
-        }
-        return $this->render('img', [
-            'settings' => (empty($settings)) ? [new Setting] : $settings
-        ]);
-    }	
+    //                 if ($flag) {
+    //                     $transaction->commit();
+    //     $subQuery1 = (new Query())->select('MIN(id)')->from('setting')->groupBy(['module','name']);
+    //     $subQuery = (new Query())->from(['u' => $subQuery1]);
+    //     $query = (new Query())->createCommand()->delete('setting', ['NOT IN','id', $subQuery]);
+    //     $query->execute();
+    //     //DELETE FROM `settings` WHERE `id` NOT IN (SELECT * FROM (SELECT MIN(id) FROM `setting` GROUP BY `module`, `name`) `u`)
+    //                     return $this->redirect(['image']);
+    //                 }
+    //             } catch (Exception $e) {
+    //                 $transaction->rollBack();
+    //             }
+    //         }
+    //     }
+    //     return $this->render('img', [
+    //         'settings' => (empty($settings)) ? [new Setting] : $settings
+    //     ]);
+    // }	
     public function actionIndex()
     {
         $settings = Setting::find()->where(['module' => 'custom'])->all();

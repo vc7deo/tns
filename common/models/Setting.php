@@ -32,7 +32,7 @@ class Setting extends \yii\db\ActiveRecord
         return [
             [['title', 'module', 'name'], 'string', 'max' => 255],
             [['value'], 'string', 'max' => 510],
-            ['file', 'file', 'extensions' => 'pdf, docx'],
+            ['file', 'file', 'extensions' => 'jpg, png'],
             ['title', 'required' ,'on' => 'custom-only' ],
             ['value', 'required', 'when' => function ($model) {
                 return $model->module == 'time';

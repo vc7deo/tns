@@ -63,6 +63,12 @@ $users = ['student','teacher','parent'];
               ['class' => ($route == 'settings/smtp') ? 'nav-link active' : 'nav-link']
               ) ?>
               </li>
+              <li class="nav-item">
+              <?= Html::a('Image Settings',
+              ['/settings/image'],
+              ['class' => ($route == 'settings/image') ? 'nav-link active' : 'nav-link']
+              ) ?>
+              </li>
             </ul>
           </li>       
             </ul>
