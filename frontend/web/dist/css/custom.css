@@ -536,6 +536,10 @@ li.nav-item.dropdown {
 .userSelect img {
   max-width: 160px;
   border-radius: 10px;
+  width: 200px;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 10%;
   border: 3px solid #21346e;
 }
 .userSelectHome img {
@@ -560,7 +564,12 @@ li.nav-item.dropdown {
 }
 
 .userSelect {
-  width: 35%;
+  width: 29%;
+  display: grid;
+  position: relative;
+  grid-auto-rows: 200px;
+  object-fit: cover;
+  margin-top: 10px;
 }
 .lastLogin {
   position: absolute;
@@ -1086,6 +1095,7 @@ header .dropdown-divider {
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
+    object-position: 50%, 10%;
 }
 
 .topSliders{
@@ -1494,4 +1504,21 @@ a.skipbtns:hover{
   .userDetails li{
         line-height: 1.5em !important;
   }
+}
+
+input#searchform-term {
+    background: transparent;
+}
+
+@media (max-width: 991px){
+.sentIntrestLogin{
+width: auto !important;
+}
+}
+.pagination-nav{
+   margin: 0 auto;
+}
+.pagination-nav li{
+  padding: 0 20px;
+  font-size: 24px;
 }

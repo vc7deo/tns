@@ -140,6 +140,14 @@ $accountForm =  ActiveForm::begin(['id' => 'signup-form','enableAjaxValidation' 
 <?= $accountForm->field($account, 'phone')->textInput()->label(false); ?>
 </div>
 </div>
+<div class="row arrageFiled">
+<div class="col-xs-12 col-lg-5">
+<label><?=$account->getAttributeLabel('Sec: phone(optional)')?></label>
+</div>
+<div class="col-xs-12 col-lg-7">
+<?= $accountForm->field($account, 'phone1')->textInput()->label(false); ?>
+</div>
+</div>
 <div class="saveButtons">
 <?= Html::submitButton('Save', ['class' => 'savebtns']) ?>
 <?= Html::a('Basic Details', ['/profile/basic'],['class' => 'cancelbtns']) ?>

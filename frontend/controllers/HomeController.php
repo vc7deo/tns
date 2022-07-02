@@ -53,13 +53,17 @@ class HomeController extends Controller
         $gender = Yii::$app->params['user.search'];
         $dataProvider = new ActiveDataProvider([
             'query' => User::find(),
-            'sort'=> ['defaultOrder' => ['created_at'=>SORT_DESC]]
+            'sort'=> ['defaultOrder' => ['created_at'=>SORT_DESC]],
+            'pagination' => [
+                'pageSize' => 12,
+            ],
         ]);
         $dataProvider->query
             ->joinWith('profile', 'profile.user_id = user.id')
             ->where(['gender' => $gender])
             ->andWhere(['profile.status' => 1])
             ->andWhere(['user.status' => 10])->all();
+
         return $this->render('index', [
             'user' => $user,
             'dataProvider' => $dataProvider,

@@ -41,13 +41,25 @@ ListView::widget([
     'emptyText' => '',
     'options' => ['class' => 'row'],
     'itemOptions'  => ['class' => "col-lg-4 col-sm-6 width-full"],
-    'layout' => "{items}\n{pager}",
+    'layout' => "{items}\n<nav class='pagination-nav'>
+                                    {pager}
+                                </nav>",
     'itemView' => function ($model, $key, $index, $widget) {
         if(isset($model->profile) && $model->profile->status == 1){
           return $this->render('_match',['model' => $model]);  
         }
     },
-]);
+    'pager' => [
+                    'nextPageLabel' => "<i class='fa fa-arrow-circle-right' aria-hidden='true'></i> ",
+                    'prevPageLabel' => " <i class='fa fa-arrow-circle-left' aria-hidden='true'></i>",
+                    'maxButtonCount' => 1,
+                    'options' => [
+                        'tag' => 'ul',
+                        'class' => 'pagination',
+                    ]
+                ],
+
+ ]);
 ?>
 <?php else:?>
 <p>No results found</p>

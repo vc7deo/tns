@@ -79,9 +79,10 @@ class ProfileController extends Controller
         $photo1 = $model->photo1;
         $photo2 = $model->photo2;
         $avatar = new AvatarForm();
-        $account = new ProfileForm($user->getAttributes(['first_name','last_name','phone','email']));
+        $account = new ProfileForm($user->getAttributes(['first_name','last_name','phone','phone1','email']));
         $account->old_email = $account->email;
         $account->old_phone = $account->phone;
+        $account->old_phone1 = $account->phone1;
        
         if ($account->load(Yii::$app->request->post()) && $account->profile($user)) {
             Yii::$app->session->setFlash('success', 'You have successfully updated your profile.');
@@ -179,7 +180,9 @@ $newImage1->save(Yii::getAlias('@webroot/uploads/profile/'.$model->photo2));*/
         $dataProvider = new ActiveDataProvider([
           'query' => $query,
         ]);
-        $query->joinWith(['sends'])->where(['user_from' => $user->id])->all();
+        $query->joinWith(['sends'])
+              ->where(['user_from' => $user->id])
+              ->andWhere(['user.status' => 10])->all();
 //         echo "<pre>";
 // print_r($dataProvider->getModels());exit();
         return $this->render('interest-send',[
@@ -195,7 +198,9 @@ $newImage1->save(Yii::getAlias('@webroot/uploads/profile/'.$model->photo2));*/
         $dataProvider = new ActiveDataProvider([
           'query' => $query,
         ]);
-        $query->joinWith(['receives'])->where(['user_to' => $user->id])->all();
+        $query->joinWith(['receives'])
+              ->where(['user_to' => $user->id])
+              ->andWhere(['user.status' => 10])->all();
         return $this->render('interest-receive',[
             'user' => $user,
             'dataProvider' => $dataProvider,
@@ -262,7 +267,8 @@ $newImage1->save(Yii::getAlias('@webroot/uploads/profile/'.$model->photo2));*/
                 $gender = Yii::$app->params['user.search'];
                 $dataProvider = new ActiveDataProvider([
                 'query' => User::find(),
-                'sort'=> ['defaultOrder' => ['created_at'=>SORT_DESC]]
+                'sort'=> ['defaultOrder' => ['created_at'=>SORT_DESC]],
+                'pagination' => false
                 ]);
                 $dataProvider->query
                             ->where(['gender' => $gender])

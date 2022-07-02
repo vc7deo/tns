@@ -12,7 +12,7 @@ $receives  = Interest::find()
                          ->leftJoin('user', 'user.id = interest.user_from')
                          ->where(['user_to' => $user->id, 'user.status' => 10])->count();
 $send 		= Interest::find()
-                         ->leftJoin('user', 'user.id = interest.user_from')
+                         ->leftJoin('user', 'user.id = interest.user_to')
                          ->where(['user_by' => $user->id, 'user.status' => 10])->count();
 ?>
 <div class="profileSide">

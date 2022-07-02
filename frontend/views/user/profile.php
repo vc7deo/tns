@@ -495,7 +495,15 @@ $receive = Interest::find()->where(['user_to' => $my_id,'user_from'=> $model->id
               <?php }else{ ?>
                   <p>
                     <span>Thanks You for Being our Customer !!!</span>
-                    <div>We sincerely appreciate your interest and hop you to contact <element><?= $model->first_name ?></element> on <element><?= $model->phone ?></element></div>
+                    <div>We sincerely appreciate your interest and hop you to contact 
+                      <element><?= $model->first_name ?></element> on 
+                      <element><?= $model->phone ?></element>
+
+                      <?php if(!empty($model->phone1)){
+                        echo " or <element>". $model->phone1 ." </element>";
+                      }
+                      ?>
+                    </div>
                     <p>Best Wishes for Your Future</p>
                  </p>
               <?php } ?>

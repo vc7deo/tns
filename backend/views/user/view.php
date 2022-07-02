@@ -21,6 +21,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'first_name',
             'last_name',
             'phone',
+            [
+                'attribute'=>'phone1',
+                'label' => 'Sec: Phone',
+            ],
             'email:email',
             [
                 'attribute' => 'status',
