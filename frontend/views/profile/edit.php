@@ -39,7 +39,7 @@ if(!empty(Yii::$app->user->identity->profile->photo2)){
 <?php if(isset($user->profile)): ?>
 <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
     <div class="wrap-image">
-     <div style="margin: 0px 10px;">
+     <div>
      <?= $form->field($avatar, 'image1')->widget(\dosamigos\fileinput\FileInput::className(), [
     'options' => ['accept' => 'image/*'],
     'thumbnail' => $photo1,
@@ -47,7 +47,7 @@ if(!empty(Yii::$app->user->identity->profile->photo2)){
     'customView' => '@frontend/views/profile/imageField.php',
 ])->hint('')->label(false)?>
    </div>
-   <div style="margin: 0px 50px;">
+   <div>
     <?= $form->field($avatar, 'image2')->widget(\dosamigos\fileinput\FileInput::className(), [
     'options' => ['accept' => 'image/*'],
     'thumbnail' => $photo2,

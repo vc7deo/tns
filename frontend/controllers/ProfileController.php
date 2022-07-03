@@ -179,6 +179,9 @@ $newImage1->save(Yii::getAlias('@webroot/uploads/profile/'.$model->photo2));*/
         $query = User::find();
         $dataProvider = new ActiveDataProvider([
           'query' => $query,
+          'pagination' => [
+                'pageSize' => 8,
+            ],
         ]);
         $query->joinWith(['sends'])
               ->where(['user_from' => $user->id])
@@ -197,6 +200,9 @@ $newImage1->save(Yii::getAlias('@webroot/uploads/profile/'.$model->photo2));*/
         $query = User::find();
         $dataProvider = new ActiveDataProvider([
           'query' => $query,
+          'pagination' => [
+                'pageSize' => 8,
+            ],
         ]);
         $query->joinWith(['receives'])
               ->where(['user_to' => $user->id])

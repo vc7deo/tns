@@ -15,9 +15,9 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/web/dist')
 </div>
 <div class="homeuserDetails">
 <ul>
-<li><?=$model->first_name?></li>
+<li><?= substr($model->first_name, 0, 15) ?><?php if (strlen($model->first_name) > 15) { echo ".."; } ?></li>
 <li><?= ($model->age != '') ? $model->age. ' ,' : ''?></li>
-<li><?= $model->profile->city ?></li>
+<li><?= substr($model->profile->city, 0, 15) ?><?php if (strlen($model->profile->city) > 15) { echo ".."; } ?></li>
 </ul>
 </div>
 </a>

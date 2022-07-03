@@ -32,12 +32,23 @@ ListView::widget([
         'tag' => false
 
     ],
-    'layout' => "{items}\n{pager}",
+    'layout' => "{items}\n<nav class='pagination-nav'>
+                                    {pager}
+                                </nav>",
     'itemView' => function ($model, $key, $index, $widget) {
         if(isset($model->profile)){
           return $this->render('_receive',['model' => $model]);  
         }
     },
+    'pager' => [
+                    'nextPageLabel' => "<i class='fa fa-arrow-circle-right' aria-hidden='true'></i> ",
+                    'prevPageLabel' => " <i class='fa fa-arrow-circle-left' aria-hidden='true'></i>",
+                    'maxButtonCount' => 1,
+                    'options' => [
+                        'tag' => 'ul',
+                        'class' => 'pagination',
+                    ]
+                ],
 ]);
 ?>
 <?php else:?>

@@ -526,6 +526,7 @@ li.nav-item.dropdown {
   box-shadow: -1px 0px 5px 0px rgba(204, 204, 204, 1);
   border-radius: 8px;
   position: relative;
+  background: #f7f7f7;
 }
 
 .ft-detail {
@@ -692,6 +693,13 @@ li.nav-item.dropdown {
   border-radius: 8px;
   max-width: 180px;
   border: 6px solid #fff;
+  max-width: 160px;
+  /* border-radius: 10px; */
+  width: 220px;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 10%;
+  /* border: 3px solid #21346e; */
 }
 .modalPhone element {
   font-weight: 600;
@@ -963,6 +971,11 @@ a.interestBtns {
     color:#21346d;
 }
 
+
+.navbar-toggler-icon {
+    width: 1em !important;
+    height: 1em !important;
+}
 .regPolicy {
   margin-right: 37px;
 }
@@ -1059,11 +1072,13 @@ header .dropdown-divider {
 .boxSizingHome.primeMembers {
   box-shadow: none;
   padding-bottom: 0;
+  background: transparent !important;
   font-size: 13px;
 }
 
 .boxSizingHome.primeMembers .homeuserDetails ul li {
   font-size: 13px;
+  color:#fff;
 }
 
 .boxSizingHome.primeMembers .homeuserDetails ul li:last-child {
@@ -1076,10 +1091,12 @@ header .dropdown-divider {
 }
 
 .topSliders h4 {
-  font-weight: 600;
+    color: #fff;
+  font-weight: 400;
+  text-align: center;
   margin-top: 20px;
   margin-bottom: 0;
-  font-size: 20px;
+  font-size: 17px;
 }
 .userSelectHome {
     display: grid;
@@ -1088,14 +1105,18 @@ header .dropdown-divider {
     object-fit: cover;
     margin-top: 10px;
 }
+.sliderPrime{
+    text-align: center;
+}
 
 .topSliders .userSelectHome img{
   border: 0 !important;
     width: 103px;
     height: 100%;
+    margin: auto;
     object-fit: cover;
     border-radius: 8px;
-    object-position: 50%, 10%;
+    object-position: 50% 10%;
 }
 
 .topSliders{
@@ -1108,7 +1129,8 @@ header .dropdown-divider {
   -webkit-box-shadow: -1px 3px 7px -1px rgba(237,237,237,1);
   -moz-box-shadow: -1px 3px 7px -1px rgba(237,237,237,1);
   box-shadow: -1px 3px 7px -1px rgba(237,237,237,1);
-  background: #fff;
+  background: rgb(33,52,110);
+background: linear-gradient(90deg, rgba(33,52,110,1) 0%, rgba(38,76,191,1) 50%);
 }
 .detailSeprate .saveButtons button {
     background: #21346e;
@@ -1204,11 +1226,15 @@ header .dropdown-divider {
 .userSelectDemo img {
     /* max-width: 100%; */
     border-radius: 10px;
-    border: 3px solid #adadad;
+    border: 1px solid #adadad;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: 50% 10%;
+}
+
+.boxSizingHome.primeMembers a img {
+    border: 1px solid #a7a5a5 !important;
 }
 
 @media (max-width: 1300px){
@@ -1393,12 +1419,36 @@ li.nav-item a.deactivate {
     background-image: url(../images/menu.png) !important;
 }
 
-@media (max-width: 991px){
+.form-group.field-avatarform-image2 {
+    margin-left: 20px;
+}
 
+@media (max-width: 1204px){
+    .topSliders h4 {
+        font-size: 14px;
+    }
+    .sentIntrestLogin span{
+    font-size: 12px;
+}
+}
+
+@media (max-width: 991px){
     .uploadImgProfile .aboutMe{
         margin-left:20px;
     }
-
+    .wrap-image{
+       display: block !important;  
+    }
+    .form-group.field-avatarform-image2 {
+    margin-left: 0px !important;
+}
+}
+.editUserPic {
+    display: grid;
+    position: relative;
+    grid-auto-rows: 220px;
+    object-fit: cover;
+    margin-top: 10px;
 }
 
 @media (max-width: 768px){
@@ -1410,11 +1460,13 @@ li.nav-item a.deactivate {
     float: left;
     width: 100%;
 }
-    .editUserPic {
-    display: block;
-    float: left;
-    width: 100%;
-}
+
+/*    .editUserPic {*/
+/*    display: block;*/
+/*    float: left;*/
+/*    width: 100%;*/
+/*}*/
+
 .uploadImgProfile .aboutMe {
     margin-left: 0;
     display: block;
@@ -1495,6 +1547,11 @@ a.skipbtns:hover{
 .ft-detail {
   display: block !important;
 }
+.sentIntrestLogin{
+width: auto !important;
+margin-bottom: 20px;
+}
+
 }
 
 @media (max-width: 500px){
@@ -1510,15 +1567,21 @@ input#searchform-term {
     background: transparent;
 }
 
-@media (max-width: 991px){
-.sentIntrestLogin{
-width: auto !important;
-}
-}
+
 .pagination-nav{
-   margin: 0 auto;
+    display: block;
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
 }
 .pagination-nav li{
-  padding: 0 20px;
-  font-size: 24px;
+    padding: 0 10px;
+    font-size: 20px;
+}
+.pagination {
+    justify-content: center;
+}
+ul.pagination li a {
+    text-decoration: none;
+    color: #21346e;
 }

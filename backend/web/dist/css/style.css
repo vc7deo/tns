@@ -59,7 +59,7 @@
 
 /*********************custom csss*************************************************/
 .wrapper .main-sidebar.sidebar-dark-primary {
-    background-color: transparent;
+    background-color: #fff !important;
 }
 
 .wrapper .brand-text.font-weight-light {

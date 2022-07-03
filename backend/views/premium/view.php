@@ -48,6 +48,11 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Approve', ['approve', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
     </p>
 <?php endif;?>
+<?php if($model->profile->status == 1): ?>
+    <p>
+        <?= Html::a('DOB update', ['updatedob', 'id' => $model->id], ['class' => 'btn btn-danger']) ?>
+    </p>
+<?php endif;?>
     <?= DetailView::widget([
         'model' => $model->profile,
         'attributes' => [

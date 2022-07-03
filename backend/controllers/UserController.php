@@ -102,6 +102,25 @@ class UserController extends Controller
         ]);
     }
 
+    public function actionUpdatedob($id)
+    {
+        $user = $this->findModel($id);
+        $model = Profile::findOne(['user_id' => $user->id]);
+        if ($model->load(Yii::$app->request->post())) {
+             //if (($model = Profile::findOne(['user_id' => $user->id])) !== null) {
+                $model->dob = strtotime($model->dob);
+                $model->save(false);
+            //}
+            Yii::$app->session->setFlash('success', 'You have successfully updated your profile.');
+        return $this->redirect(['view', 'id' => $user->id]);
+        }
+
+        return $this->render('updatedob', [
+            'model' => $model,
+            'user' => $user,
+        ]);
+    }
+
     /**
      * Deletes an existing User model.
      * If deletion is successful, the browser will be redirected to the 'index' page.

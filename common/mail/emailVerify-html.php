@@ -82,9 +82,13 @@ body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;
                                         <td bgcolor="#ffffff" align="center" style="padding: 30px 30px 30px 30px; border-top:1px solid #dddddd;">
                                             <table border="0" cellspacing="0" cellpadding="0">
                                                 <tr>
-                                                    <td align="left" style="border-radius: 3px;" bgcolor="#426899">
-                                                        <a href="<?= $verifyLink ?>" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 11px 22px; border-radius: 2px; border: 1px solid #426899; display: inline-block;">Verify Email</a>
+                                                    <td align="left" style="border-radius: 3px; font-size: 20px;">
+                                                         To Verify Email &nbsp;&nbsp;&nbsp;
                                                     </td>
+                                                    <td align="left" style="border-radius: 3px;" bgcolor="#426899">
+                                                        <a href="<?= $verifyLink ?>" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 11px 22px; border-radius: 2px; border: 1px solid #426899; display: inline-block;">Click Here</a>
+                                                    </td>
+                                                    
                                                 </tr>
                                             </table>
                                         </td>
