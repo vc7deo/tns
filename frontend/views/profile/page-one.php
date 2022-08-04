@@ -27,7 +27,7 @@ if(!$model->isNewRecord){
         'autoclose'=>true,
         'format' => 'dd-mm-yyyy',
         'todayHighlight' => true,
-        'endDate' => "-21y"
+        'endDate' => "-18y"
     ],
 ]);?>
       </div>
@@ -205,7 +205,8 @@ if(!$model->isNewRecord){
           </div>
           <div class="row arrageFiled">
             <div class="col-xs-12 col-lg-12">
-<?= $form->field($model, 'occupation')->dropDownList(['Business Owner / Entrepreneur' => 'Business Owner / Entrepreneur', 
+<?= $form->field($model, 'occupation')->dropDownList(['Not Working' => 'Not Working', 
+                                                      'Business Owner / Entrepreneur' => 'Business Owner / Entrepreneur', 
                                                       'Executive' => 'Executive', 
                                                       'Software Professional' => 'Software Professional', 
                                                       'Manager' => 'Manager', 

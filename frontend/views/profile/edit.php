@@ -19,7 +19,7 @@ if(!empty(Yii::$app->user->identity->profile->photo2)){
 <div class="page-content mt-4 mb-10 pb-6">
 <div class="container">
 <div class="row">
-<div class="col-md-3">
+<div class="col-lg-3 col-md-4">
 <ul class="nav nav-tabs nav-fill flex-column left-navs" id="myTab" role="tablist">
 <?= $this->render(
     '@frontend/views/common/menu',
@@ -30,7 +30,7 @@ if(!empty(Yii::$app->user->identity->profile->photo2)){
     '@frontend/views/common/match'
 ) ?>
 </div>
-<div class="tab-content col-md-9" id="myTabContent">
+<div class="tab-content col-lg-9 col-md-8" id="myTabContent">
 <div class="tab-pane fade show active" id="edit" role="tabpanel" aria-labelledby="edit-tab">
 
 <div class="detailSeprate">

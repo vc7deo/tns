@@ -12,6 +12,7 @@ class ProfileForm extends Model
     public $first_name;
     public $last_name;
     public $phone;
+    public $gender;
     public $email;
     public $old_email;
     public $old_phone;
@@ -26,7 +27,7 @@ class ProfileForm extends Model
     {
         return [
             [['first_name','last_name','phone','email'], 'trim'],
-            [['first_name','last_name','phone','email','package_id','status'], 'required'],
+            [['first_name','last_name','phone','email','package_id','status','gender'], 'required'],
             ['email', 'string', 'max' => 255],
             [['old_email','old_phone'],'safe'],
             ['email', 'unique',
@@ -74,6 +75,7 @@ class ProfileForm extends Model
         $user->last_name = $this->last_name;
         $user->phone = $this->phone;
         $user->email = $this->email;
+        $user->gender = $this->gender;
         $user->package_id = $this->package_id;
         if($this->package_id == 1){
             $user->expired_at = null;

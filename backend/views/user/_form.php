@@ -16,6 +16,7 @@ if(!empty($model->expired_at)){
     <?php $form = ActiveForm::begin(); ?>
 <?= $form->field($model, 'first_name')->textInput(['maxlength' => true]) ?>
 <?= $form->field($model, 'last_name')->textInput(['maxlength' => true]) ?>
+<?= $form->field($model, 'gender')->dropDownList([ 'Male' => 'Male','Female' => 'Female']) ?>
 <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 <?= $form->field($model, 'package_id')->dropDownList([ 1 => 'Normal',2 => '3 Months', 3 => '6 Months'], ['onchange'=>'if($(this).val() > 1){

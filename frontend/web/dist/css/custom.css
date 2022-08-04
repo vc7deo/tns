@@ -85,7 +85,7 @@ button {
   top: 0;
   right: 58px;
   position: absolute;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .regSection span {
@@ -113,9 +113,9 @@ button {
 }
 
 .loginCenter h5 {
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
   font-weight: 700;
-  padding-top: 20px;
+  padding-top: 10px;
   font-size: 25px;
 }
 
@@ -957,7 +957,7 @@ a.interestBtns {
 }
 
 .logo-main img {
-  max-width: 145px;
+  max-width: 110px;
 }
 
 .logo-main:after {
@@ -1452,6 +1452,15 @@ li.nav-item a.deactivate {
 }
 
 @media (max-width: 768px){
+    .profileSmallImg img {
+    width: 36%;
+    height: 75%;
+    }
+    
+    a#navbarDropdown img {
+    max-width: 40px !important;
+}
+
     .detailSeprate h3 {
     font-size: 18px;
 }
@@ -1460,6 +1469,9 @@ li.nav-item a.deactivate {
     float: left;
     width: 100%;
 }
+
+}
+
 
 /*    .editUserPic {*/
 /*    display: block;*/
@@ -1470,6 +1482,7 @@ li.nav-item a.deactivate {
 .uploadImgProfile .aboutMe {
     margin-left: 0;
     display: block;
+    margin-top: 20px;
     float: left;
     width: 100%;
 }
@@ -1584,4 +1597,46 @@ input#searchform-term {
 ul.pagination li a {
     text-decoration: none;
     color: #21346e;
+}
+#signup-form h3 {
+    font-size: 17px;
+    color: #21346e;
+    font-weight: 500;
+}
+
+.flex-column.left-navs li.nav-item img {
+    max-width: 14px !important;
+}
+
+.topSliders h4 img {
+    max-width: 25px;
+}
+
+@media (max-width: 424px){
+a.interestBtns{
+    float: none;
+display:block;
+text-align: center;
+}
+}
+
+@media (max-width: 414px){
+.profileSmallImg img {
+    width: 36%;
+    height: 68%;
+}
+.profileSmallImg {
+    grid-auto-rows: 153px;
+}
+}
+
+@media (max-width: 360px){
+.profileSmallImg img {
+width: 45%;
+    height: 75%;
+}
+
+.profileSmallImg {
+    grid-auto-rows: 143px;
+}
 }

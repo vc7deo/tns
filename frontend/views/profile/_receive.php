@@ -14,7 +14,7 @@ $my_id= Yii::$app->user->identity->id;
 // print_r($model->send);exit();
 $receives = Yii::$app->user->identity->receives;
 $users = ArrayHelper::getColumn($receives, 'user_to');
-
+//echo "<pre>"; print_r($users); exit;
 ?>
 
 <div class="boxSizing">
@@ -39,11 +39,10 @@ $users = ArrayHelper::getColumn($receives, 'user_to');
 </div>
 <div>
 <?php if(array_key_exists($model->id, $users)):?>
-<?php if($users[$model->id]['user'] == $users[$model->id]['user_by']):?>
+
     <?= Html::a('<i class="fa fa-heart" aria-hidden="true"></i> Send interest', ['/user/send','token' => $model->token],['class' => 'interestBtns']) ?>
 <?php else:?>
 
-<?php endif;?>
 <?php endif;?>
 </div>
 

@@ -16,7 +16,7 @@ if(!$model->isNewRecord){
 <div class="page-content mt-4 mb-10 pb-6">
 <div class="container">
 <div class="row">
-<div class="col-md-3">
+<div class="col-lg-3 col-md-4">
 <ul class="nav nav-tabs nav-fill flex-column left-navs" id="myTab" role="tablist">
 <?= $this->render(
     '@frontend/views/common/menu',
@@ -27,7 +27,7 @@ if(!$model->isNewRecord){
     '@frontend/views/common/match'
 ) ?>
 </div>
-<div class="tab-content col-md-9" id="myTabContent">
+<div class="tab-content col-lg-9 col-md-8" id="myTabContent">
 <div class="tab-pane fade show active" id="edit" role="tabpanel" aria-labelledby="edit-tab">
 <?php 
 $form =  ActiveForm::begin();
@@ -253,7 +253,8 @@ $form =  ActiveForm::begin();
 <label><?=$model->getAttributeLabel('occupation')?></label>
 </div>
 <div class="col-xs-12 col-lg-7">
-<?= $form->field($model, 'occupation')->dropDownList(['Business Owner / Entrepreneur' => 'Business Owner / Entrepreneur', 
+<?= $form->field($model, 'occupation')->dropDownList(['Not Working' => 'Not Working', 
+                                                      'Business Owner / Entrepreneur' => 'Business Owner / Entrepreneur', 
                                                       'Executive' => 'Executive', 
                                                       'Software Professional' => 'Software Professional', 
                                                       'Manager' => 'Manager', 
